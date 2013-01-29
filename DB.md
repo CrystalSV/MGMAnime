@@ -7,6 +7,7 @@ This is the structure of the Entities in the MGM Anime DB
 catNews
 -------
 
+- id
 - Title
 - Content
 - Date
