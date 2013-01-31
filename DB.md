@@ -70,9 +70,9 @@ ctrAvatars
 Relations
 =========
 
-catNews - catCategories (A category can has many news)
-catNews - catUsers (An user can write many news)
-catNews - ctrBreakingNews (A new can be a breaking new)
-catNews - ctrMultimedia (A new can has many multimedia files)
-ctrAcces - catUser (An acces can be aproved to a user)
-catusers - ctrAvatars (An user can has an avatar)
+- catNews - catCategories (A category can has many news)
+- catNews - catUsers (An user can write many news)
+- catNews - ctrBreakingNews (A new can be a breaking new)
+- catNews - ctrMultimedia (A new can has many multimedia files)
+- ctrAcces - catUser (An acces can be aproved to a user)
+- catusers - ctrAvatars (An user can has an avatar)
