@@ -5,12 +5,12 @@ namespace Crystal\BaseBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ctrMultimedia
+ * ctrAvatars
  *
  * @ORM\Table()
- * @ORM\Entity(repositoryClass="Crystal\BaseBundle\Entity\ctrMultimediaRepository")
+ * @ORM\Entity(repositoryClass="Crystal\BaseBundle\Entity\ctrAvatarsRepository")
  */
-class ctrMultimedia
+class ctrAvatars
 {
     /**
      * @var integer
@@ -24,16 +24,16 @@ class ctrMultimedia
     /**
      * @var string
      *
-     * @ORM\Column(name="path", type="string", length=40)
+     * @ORM\Column(name="type", type="string", length=15)
      */
-    private $path;
+    private $type;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="type", type="string", length=15)
+     * @ORM\Column(name="path", type="string", length=150)
      */
-    private $type;
+    private $path;
 
 
     /**
@@ -47,33 +47,10 @@ class ctrMultimedia
     }
 
     /**
-     * Set path
-     *
-     * @param string $path
-     * @return ctrMultimedia
-     */
-    public function setPath($path)
-    {
-        $this->path = $path;
-    
-        return $this;
-    }
-
-    /**
-     * Get path
-     *
-     * @return string 
-     */
-    public function getPath()
-    {
-        return $this->path;
-    }
-
-    /**
      * Set type
      *
      * @param string $type
-     * @return ctrMultimedia
+     * @return ctrAvatars
      */
     public function setType($type)
     {
@@ -90,5 +67,28 @@ class ctrMultimedia
     public function getType()
     {
         return $this->type;
+    }
+
+    /**
+     * Set path
+     *
+     * @param string $path
+     * @return ctrAvatars
+     */
+    public function setPath($path)
+    {
+        $this->path = $path;
+    
+        return $this;
+    }
+
+    /**
+     * Get path
+     *
+     * @return string 
+     */
+    public function getPath()
+    {
+        return $this->path;
     }
 }

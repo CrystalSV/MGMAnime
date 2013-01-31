@@ -35,3 +35,32 @@ ctrMultimedia
 - path
 - idNew
 - type
+
+ctrAccess
+---------
+
+- id
+- idUser
+
+catUsers
+-------
+
+- id
+- userName
+- mail
+- pass
+- signature
+- gender
+- age
+- Ocupations
+- hobbies
+- birthday
+- website
+- idAvatar
+
+ctrAvatars
+----------
+
+- id
+- type
+- path
