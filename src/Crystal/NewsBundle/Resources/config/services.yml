@@ -1,0 +1,7 @@
+parameters:
+#    crystal_news.example.class: Crystal\NewsBundle\Example
+
+services:
+#    crystal_news.example:
+#        class: %crystal_news.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
