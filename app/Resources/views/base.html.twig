@@ -2,8 +2,14 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
+        <title>{% block title %}MGM Anime{% endblock %}</title>
+        {% block stylesheets %}
+            {% stylesheets filter='cssrewrite' 
+                'bundles/CrystalNewsBundle/css/*'
+            %}
+                <link rel="stylesheet/less" type="text/css" href="{{ asset_url }}" />
+            {% endstylesheets %}
+        {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
