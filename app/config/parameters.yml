@@ -4,7 +4,11 @@ parameters:
     database_port:     ~
     database_name:     sysAnimeNews
     database_user:     root
+<<<<<<< HEAD
     database_password: crystalServer
+=======
+    database_password: 
+>>>>>>> 21f7406c1dba8180e8430b9b2ef370b2903eb530
 
     mailer_transport:  smtp
     mailer_host:       127.0.0.1

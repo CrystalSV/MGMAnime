@@ -13,7 +13,12 @@
 		<td>Signature?:</td><td><input type="text" name="txtSignature"  value="{{user.signature}}"/></td>
 	</tr>
 	<tr>
-		<td>Gender?:</td><td><input type="text" name="txtGender"  value="{{user.gender}}"/></td>
+		<td>Gender?:</td>
+		<td>
+			<input type="radio" name="txtGender" value="M" {% if( user.Gender == 'M') %} CHECKED {% endif %} /> Masculino
+			<input type="radio" name="txtGender" value="F" {% if( user.Gender == 'F') %} CHECKED {%  endif %} /> Femenino
+			<input type="radio" name="txtGender" value="N" {% if( user.Gender == 'N') %} CHECKED {%  endif %} /> N/A
+		</td>
 	</tr>
 	<tr>
 		<td>Edad:</td><td><input type="text" name="txtAge"  value="{{user.age}}"/></td>

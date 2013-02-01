@@ -71,7 +71,6 @@ class usersController extends Controller
 				$user->setHobbies($_POST->get('txtHobbies'));
 				$user->setBirthday($_POST->get('txtBirthday'));
 				$user->setWebsite($_POST->get('txtWebsite'));
-			
 				$em->persist($user);
 				$em->flush();
 

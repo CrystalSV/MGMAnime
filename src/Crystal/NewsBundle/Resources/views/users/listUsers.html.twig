@@ -1,9 +1,10 @@
-<table cellpadding="0" celspacing="0">
+<table cellpadding="0" celspacing="0" border="1">
 <tr>
 	
 	<td>Nombre</<td>
 	<td>Email</<td>
-	<td>Contra</<td>
+	<td>Signature</td>
+	<td>Contrase&ntilde;a</<td>
 	<td>Gender?</<td>
 	<td>Edad</<td>
 	<td>Ocupations</<td>
@@ -18,7 +19,15 @@
 		<td>{{user.mail}}</td>
 		<td>{{user.pass}}</td>
 		<td>{{user.signature}}</td>
-		<td>{{user.gender}}</td>
+		<td>
+			{% if user.gender == 'M'%}
+			Masculino
+			{% elseif user.gender == 'F' %}
+			Femenino
+			{% else %}
+			N/A
+			{% endif %}
+		</td>
 		<td>{{user.age}}</td>
 		<td>{{user.Ocupations}}</td>
 		<td>{{user.hobbies}}</td>
@@ -32,4 +41,4 @@
 	<tr>
 		<td><a href="{{ path('addUsers') }}">Agregar<a/></td>
 	</tr>
-</table>
+</table>																		
