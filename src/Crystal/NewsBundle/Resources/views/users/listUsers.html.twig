@@ -20,7 +20,13 @@
 		<td>{{user.pass}}</td>
 		<td>{{user.signature}}</td>
 		<td>
-			{{ user.gender }}
+			{% if user.gender == 'M'%}
+			Masculino
+			{% elseif user.gender == 'F' %}
+			Femenino
+			{% else %}
+			N/A
+			{% endif %}
 		</td>
 		<td>{{user.age}}</td>
 		<td>{{user.Ocupations}}</td>
