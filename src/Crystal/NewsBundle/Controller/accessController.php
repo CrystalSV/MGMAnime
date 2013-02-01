@@ -3,12 +3,13 @@ namespace Crystal\NewsBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\ctrAccess;
+use Crystal\BaseBundle\Entity\catUsers;
 
 class accessController extends Controller
 {
 	public function addAction()
 	{
-		$user = new ctrAccess();
+		$access = new ctrAccess();
 
 		$em = $this->getDoctrine()->getEntityManager();
 		$request = $this->getRequest();
@@ -18,7 +19,8 @@ class accessController extends Controller
 
 			$_POST = $request->request;
 
-			$access->setidUser($id);
+			$user = $em->getRepository('CrystalBaseBundle:catUsers')->find($_POST->get('txtId'));
+			$access->setidUser($user);
 		
 			
 			$em->persist($access);
@@ -30,7 +32,8 @@ class accessController extends Controller
 		}
 		else
 		{
-			return $this->render('CrystalNewsBundle:users:addUsers.html.twig', array('user' => $user));
+			$users = $em->getRepository('CrystalBaseBundle:catUsers')->findAll();
+			return $this->render('CrystalNewsBundle:Users:addAccess.html.twig', array('users' => $users));
 		}
 	}
 }

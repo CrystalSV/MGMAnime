@@ -2,13 +2,13 @@ Index:
     pattern:  /
     defaults: { _controller: CrystalNewsBundle:Views:index }
 
-listUsers:
-    pattern:   /admin/listUsers
+userlist:
+    pattern:   /userlist
     defaults:  { _controller: CrystalNewsBundle:users:list }
 
-addUsers:
-    pattern:   /userList/addUsers
-    defaults:  { _controller: CrystalNewsBundle:users:add }
+register:
+    pattern:   /register
+    defaults:  { _controller: CrystalNewsBundle:users:register }
 
 updateUsers:
     pattern:   /admin/updateUsers/{id}
@@ -19,8 +19,13 @@ deleteUsers:
     defaults:  { _controller: CrystalNewsBundle:users:delete }
 
 addAccess:
-    pattern:   /admin/addAccess/{id}
+    pattern:   /admin/addAccess
     defaults:  { _controller: CrystalNewsBundle:access:add }
+
+createNews:
+    pattern:   /admin/createNews
+    defaults:  { _controller: CrystalNewsBundle:news:add }
+
 
 
 

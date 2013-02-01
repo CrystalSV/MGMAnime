@@ -1,0 +1,20 @@
+<script>
+	function change()
+	{
+		var input = document.getElementById('input');
+		var opt = document.getElementById(input.value);
+		opt.getElementsByTagName('input')[0].name = "txtId";
+	}
+</script>
+<form  method="post">
+<input list="txtUserName" name="txtUserName" id="input" onchange="change()">
+<datalist id="txtUserName">
+	{% for user in users %}
+		<option id="{{ user.userName }}">
+			{{ user.userName }}
+			<input type="hidden" name="" value="{{ user.id }}">
+		</option>
+	{% endfor %}
+</datalist>
+<input type="submit">
+</form>
