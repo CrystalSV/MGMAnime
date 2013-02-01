@@ -1,3 +1,11 @@
+<script>
+	function change()
+	{
+		var input = document.getElementById('input');
+		var opt = document.getElementById(input.value);
+		opt.getElementsByTagName('input')[0].name = "txtId";
+	}
+</script>
 <form method="post">
 <table cellpadding="0" cellspacing="0" >
 	<tr>
@@ -7,12 +15,30 @@
 		<td>Fecha:</td><td><input type="text" name="txtDate" /></td>
 	</tr>
 	<tr>
-		<td>Palabra clave:</td><td><input type="text" name="txtKeywords"/></td>
+		<td>Palabra Clave:</td><td><input type="text" name="txtKeywords" /></td>
+	</tr>
+	<tr>
+	<td>
+		Categoria
+	</td>
+	<td>
+	<input list="txtName" name="txtName" id="input" onchange="change()">
+	<datalist id="txtName">
+	{% for category in category %}
+		<option id="{{ category.name }}">
+			{{ category.name }}
+			<input type="hidden" name="" value="{{ category.id }}">
+		</option>
+	{% endfor %}
+	</datalist>
+	</td>
+	</tr>
+	<tr>
+		<td>Imagen:</td><td><input type="text" name="txtImagePath" /></td>
 	</tr>
 	<tr>
 		<td><input type="submit" name="btnNews" value="Guardar"/></td>
 	</tr>
-	
 </table>
 </form>
 
