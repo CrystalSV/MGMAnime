@@ -1,0 +1,35 @@
+<table cellpadding="0" celspacing="0">
+<tr>
+	
+	<td>Nombre</<td>
+	<td>Email</<td>
+	<td>Contra</<td>
+	<td>Gender?</<td>
+	<td>Edad</<td>
+	<td>Ocupations</<td>
+	<td>Hobies</<td>
+	<td>birthday</<td>
+	<td>website</<td>
+	
+</tr>
+{% for user in user %}
+	<tr>
+		<td>{{user.userName}}</td>
+		<td>{{user.mail}}</td>
+		<td>{{user.pass}}</td>
+		<td>{{user.signature}}</td>
+		<td>{{user.gender}}</td>
+		<td>{{user.age}}</td>
+		<td>{{user.Ocupations}}</td>
+		<td>{{user.hobbies}}</td>
+		<td>{{user.birthday}}</td>
+		<td>{{user.website}}</td>
+		<td> <a href="{{ path('updateUsers', {'id' : (user.id)}) }}">Update<a/> </td>
+		<td> <a href="{{ path('deleteUsers', {'id' : (user.id)}) }}">Delete</a> </td>
+		<td> <a href="{{ path('addAccess', {'id' : (user.id)}) }}">Admin</a> </td>
+	</tr>
+{% endfor %}
+	<tr>
+		<td><a href="{{ path('addUsers') }}">Agregar<a/></td>
+	</tr>
+</table>
