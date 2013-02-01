@@ -68,6 +68,7 @@
 		<div class="line-1">
 			<img src="{{ asset('bundles/crystalnews/images/line-1.png') }}" width="900" height="84" />
 		</div>
+	</section>
 {% endblock %}
 
 {% block news %}
@@ -95,7 +96,7 @@
 			<div class="newsInfo"></div>
 		</article>
 		<div class="line-2">
-			<img src="{{ asset('bundles/crystalnews/img/line-2.png') }}" width="700" height="72" />
+			<img src="{{ asset('bundles/crystalnews/images/line-2.png') }}" width="700" height="72" />
 		</div>
 		<article>
 			<div>
@@ -122,7 +123,7 @@
 			<div class="newsInfo"></div>
 		</article>
 		<div class="line-2">
-			<img src="img/line-3.png" width="700" height="106" />
+			<img src="{{ asset('bundles/crystalnews/images/line-3.png') }}" width="700" height="106" />
 		</div>
 		<article>
 			<div>
@@ -148,3 +149,18 @@
 		</article>
 	</section>
 {% endblock %}
+
+{% block sideBar %}
+	<section id="register">
+		<img src="{{ asset('bundles/crystalnews/images/register.png') }}" width="250" height="96" />
+	</section>
+	<aside id="fb-box">
+		<div class="fb-like-box" data-href="http://www.facebook.com/misgustosmisanimes" data-width="250" data-height="500" data-show-faces="true" data-stream="false" data-header="true"></div>
+	</aside>
+	<aside id="fb-box">						
+		<a class="twitter-timeline" href="https://twitter.com/MGMAnime" data-widget-id="287676963575959552" width="250" height="500">Tweets por @MGMAnime</a>
+		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+	</aside>
+{% endblock %}
+
