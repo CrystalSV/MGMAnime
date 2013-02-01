@@ -11,6 +11,14 @@ web/css/*
 web/js/*
 web/uploads/*
 
+/web/bundles/
+/app/bootstrap*
+/app/cache/*
+/app/logs/*
+/vendor/
+/app/config/parameters.ini
+/app/config/parameters.yml
+
 # -- Composer -----------------------------------------
 composer.phar
 
