@@ -65,22 +65,22 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
-@font-face
-{
-	font-family: 'Opificio';
-	src: url(fonts/Opificio.ttf);
-}
+	@font-face
+	{
+		font-family: 'Opificio';
+		src: url(../fonts/Opificio.ttf);
+	}
 
 @font-face
 {
 	font-family: 'Stentiga';
-	src: url(fonts/stentiga.otf);
+	src: url(../fonts/stentiga.otf);
 }
 
 @font-face
 {
 	font-family: 'Champagne';
-	src: url(fonts/Champagne.ttf);
+	src: url(../fonts/Champagne.ttf);
 }
 
 body img{ width: 100%; height: auto; }
@@ -188,6 +188,7 @@ nav
 	width: 84%;
 	font-family: Comic-sans;
 	text-align: center;
+	font-weight: bold;
 
 	section
 	{
@@ -227,7 +228,7 @@ nav
 	&:hover
 	{
 		.transitionHover();
-		background: url('img/forum-char.png') no-repeat;
+		background: url('../images/forum-char.png') no-repeat;
 		padding-top: 60px;
 		height: 250px - 60px;
 	}
@@ -240,17 +241,19 @@ nav
 	&:hover
 	{
 		.transitionHover();
-		background: url('img/biblioteca-char.png') no-repeat;
+		background: url('../images/biblioteca-char.png') no-repeat;
 		padding-top: 60px;		
 	}
 }
 
 .sec-radio
 {
+	text-align: left;
+
 	&:hover
 	{
 		.transitionHover();
-		background: url('img/radio-char.png') no-repeat;
+		background: url('../images/radio-char.png') no-repeat;
 		padding-top: 60px;
 		height: 250px - 60px;
 	}
@@ -259,18 +262,18 @@ nav
 .forum
 {
 	border: 5px solid #e20;
-	background: #FFF url('img/forum-icon.png') no-repeat -9 0;
+	background: #FFF url('../images/forum-icon.png') no-repeat;
 }
 
 .library
 {
-	background: url('img/biblioteca-icon.png') no-repeat;
+	background: url('../images/biblioteca-icon.png') no-repeat;
 	border: 5px solid #e2822e;
 }
 
 .radio
 {
-	background: url('img/radio-icon.png') no-repeat;
+	background: url('../images/radio-icon.png') no-repeat;
 	border: 5px solid #40535a;
 }
 
