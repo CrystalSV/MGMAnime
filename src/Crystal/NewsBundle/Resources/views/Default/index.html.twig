@@ -42,26 +42,12 @@
 		<section class="slider">
 			<div class="flexslider">
 				<ul class="slides">
-					<li>
-						<img src="http://misgustosmianime.tk/mgmanime/pics/Breaking-5.jpg" width="700" height="350" />
-						<div><span>Revisión de Robotics;Notes</span></div>
-					</li>
-					<li>
-						<img src="http://misgustosmianime.tk/mgmanime/pics/Breaking-2.jpg" width="700" height="350" />
-						<div><span>Chuunibyou demo koi ga shitai! llega a su fin</span></div>
-					</li>
-					<li>
-						<img src="http://misgustosmianime.tk/mgmanime/pics/Breaking-3.jpg" width="700" height="350" />
-						<div><span>Sakurasou no pet na kanojou fin del primer arco</span></div>
-					</li>
-					<li>
-						<img src="http://misgustosmianime.tk/mgmanime/pics/Breaking-4.jpg" width="700" height="350" />
-						<div><span>¿Tonari no kaibutsu kun termina?</span></div>
-					</li>
-					<li>
-						<img src="http://misgustosmianime.tk/mgmanime/pics/Breaking-5.jpg" width="700" height="350" />
-						<div><span>Boku wa tomodachi ga sukunai tendrá segunda temporada</span></div>
-					</li>
+					{% for BkNew in BkNews %}
+						<li>
+							<img src="{{ asset(BkNews.imagePath) }}" width="700" height="350" />
+							<div><span>{{ BkNews.Title }}</span></div>
+						</li>
+					{% endfor %}
 				</ul>
 			</div>
 		</section>

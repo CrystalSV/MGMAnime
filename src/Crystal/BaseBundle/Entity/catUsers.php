@@ -118,21 +118,20 @@ class catUsers
     }
 
      /**
-     *ORM\@OneToOne(targetEntity="ctrAvatars", inversedBy="catUsers")
-     * ORM\@JoinColumn(name="idAvatar", referencedColumnName="id")
+     * @ORM\OneToOne(targetEntity="ctrAvatars")
+     * @ORM\JoinColumn(name="idAvatar", referencedColumnName="id")
      **/
-    private $idAvatar;
+     private $idAvatar;
 
-   public function setidAvatar(\Crystal\BaseBundle\Entity\ctrAvatars $idAvatar)
-    {
+     public function setidAvatar(\Crystal\BaseBundle\ctrAvatars $idAvatar)
+     {
         $this->idAvatar = $idAvatar;
-    }
+     }
 
-    public function getidAvatar()
-    {
+     public function getidAvatar()
+     {
         return $this->idAvatar;
-    }
-
+     }
 
     /**
      * Set userName

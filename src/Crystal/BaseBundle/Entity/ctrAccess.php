@@ -33,8 +33,18 @@ class ctrAccess
     }
 
      /**
-     *ORM\@OneToOne(targetEntity="catUsers", inversedBy="ctrAccess")
-     * ORM\@JoinColumn(name="idUser", referencedColumnName="id")
+     *@ORM\OneToOne(targetEntity="catUsers")
+     * @ORM\JoinColumn(name="idUser", referencedColumnName="id")
      **/
     private $idUser;
+
+    public function setidUser(\Crystal\BaseBundle\Entity\catUsers $idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+    public function getidUser()
+    {
+        return $this->idUser;
+    }
 }

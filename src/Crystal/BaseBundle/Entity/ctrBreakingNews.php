@@ -39,11 +39,21 @@ class ctrBreakingNews
         return $this->id;
     }
 
- /**
-     *ORM\@OneToOne(targetEntity="catNews", inversedBy="ctrBreakingNews")
-     * ORM\@JoinColumn(name="idNew", referencedColumnName="id")
+    /**
+     *@ORM\OneToOne(targetEntity="catNews")
+     *@ORM\JoinColumn(name="idNew", referencedColumnName="id")
      **/
     private $idNew;
+
+    public function setidNew(\Crystal\BaseBundle\Entity\catNews $idNew)
+    {
+        $this->idNew = $idNew;
+    }
+
+    public function getidNew()
+    {
+        return $this->idNew;
+    }
 
     /**
      * Set imagePath
