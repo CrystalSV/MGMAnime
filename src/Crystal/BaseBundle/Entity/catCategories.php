@@ -40,6 +40,21 @@ class catCategories
     }
 
     /**
+     * @ORM\OneToMany(targetEntity="catNews", mappedBy="idCategory")
+     */
+    private $idCategory;
+
+    public function addidCategory(\Crystal\BaseBundle\Entity\catCategories $idCategory)
+    {
+        $this->idCategory[] = $idCategory;
+    }
+
+    public function getidCategory()
+    {
+        return $this->idCategory;
+    }
+
+    /**
      * Set Name
      *
      * @param string $name

@@ -39,6 +39,12 @@ class ctrBreakingNews
         return $this->id;
     }
 
+ /**
+     *ORM\@OneToOne(targetEntity="catNews", inversedBy="ctrBreakingNews")
+     * ORM\@JoinColumn(name="idNew", referencedColumnName="id")
+     **/
+    private $idNew;
+
     /**
      * Set imagePath
      *

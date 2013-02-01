@@ -46,6 +46,23 @@ class ctrMultimedia
         return $this->id;
     }
 
+     /**
+     * @ORM\ManyToOne(targetEntity="catNews", inversedBy="ctrMultimedia")
+     * @ORM\JoinColumn(name="idNew", referencedColumnName="id")
+     * @return integer
+     */
+    private $idNew;
+
+    public function setidNew(\Crystal\BaseBundle\Entity\catNews $idNew)
+    {
+        $this->idNew = $idNew;
+    }
+
+    public function getidNew()
+    {
+        return $this->idUser;
+    }
+
     /**
      * Set path
      *

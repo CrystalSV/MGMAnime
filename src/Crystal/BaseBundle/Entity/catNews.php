@@ -26,6 +26,57 @@ class catNews
      *
      * @ORM\Column(name="Title", type="string", length=90)
      */
+
+    /**
+     * @ORM\ManyToOne(targetEntity="catCategories", inversedBy="catNews")
+     * @ORM\JoinColumn(name="idCategory", referencedColumnName="id")
+     * @return integer
+     */
+    private $idCategory;
+
+    public function setidCategory(\Crystal\BaseBundle\Entity\catCategories $idCategory)
+    {
+        $this->idCategory = $idCategory;
+    }
+
+    public function getidCategory()
+    {
+        return $this->idCategory;
+    }
+     /**
+     * @ORM\ManyToOne(targetEntity="catUsers", inversedBy="catNews")
+     * @ORM\JoinColumn(name="idUser", referencedColumnName="id")
+     * @return integer
+     */
+    private $idUser;
+
+    public function setidUser(\Crystal\BaseBundle\Entity\catUsers $idUser)
+    {
+        $this->idUser = $idUser;
+    }
+
+    public function getidUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @ORM\OneToMany(targetEntity="ctrMultimedia", mappedBy="idNew")
+     */
+    private $idMultimedia;
+
+    public function addidMultimedia(\Crystal\BaseBundle\Entity\ctrMultimedia $idMultimedia)
+    {
+        $this->idMultimedia[] = $idMultimedia;
+    }
+
+    public function getidMultimedia()
+    {
+        return $this->idMultimedia;
+    }
+
+
+
     private $Title;
 
     /**

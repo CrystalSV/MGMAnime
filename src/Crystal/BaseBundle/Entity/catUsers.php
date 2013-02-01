@@ -103,6 +103,38 @@ class catUsers
     }
 
     /**
+     * @ORM\OneToMany(targetEntity="catNews", mappedBy="idUser")
+     */
+    private $idUser;
+
+    public function addidUser(\Crystal\BaseBundle\Entity\catUsers $idUser)
+    {
+        $this->idUser[] = $idUser;
+    }
+
+    public function getidUser()
+    {
+        return $this->idUser;
+    }
+
+     /**
+     *ORM\@OneToOne(targetEntity="ctrAvatars", inversedBy="catUsers")
+     * ORM\@JoinColumn(name="idAvatar", referencedColumnName="id")
+     **/
+    private $idAvatar;
+
+   public function setidAvatar(\Crystal\BaseBundle\Entity\ctrAvatars $idAvatar)
+    {
+        $this->idAvatar = $idAvatar;
+    }
+
+    public function getidAvatar()
+    {
+        return $this->idAvatar;
+    }
+
+
+    /**
      * Set userName
      *
      * @param string $userName

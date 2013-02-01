@@ -31,4 +31,10 @@ class ctrAccess
     {
         return $this->id;
     }
+
+     /**
+     *ORM\@OneToOne(targetEntity="catUsers", inversedBy="ctrAccess")
+     * ORM\@JoinColumn(name="idUser", referencedColumnName="id")
+     **/
+    private $idUser;
 }
