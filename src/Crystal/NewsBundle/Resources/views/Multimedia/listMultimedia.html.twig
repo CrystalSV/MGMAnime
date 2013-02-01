@@ -1,0 +1,15 @@
+<table cellpadding="0" celspacing="0"  bordercolor="blue"   border="1">
+<tr >
+	
+	<td colspan="2"   style="width:50%; height:auto;" align="center"><b>...Multimedia...</b></<td>
+	<td><a href="{{ path('addCategories') }}">Agregar<a/></td>	
+</tr>
+{% for multimedias in multimedia  %}
+	<tr>
+		<td>{{multimedias.path}}</td>
+		<td>{{multimedias.type}}</td>
+	</tr>
+
+{% endfor %}
+
+</table>																		
