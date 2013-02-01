@@ -44,8 +44,10 @@
 				<ul class="slides">
 					{% for BkNew in BkNews %}
 						<li>
-							<img src="{{ asset(BkNews.imagePath) }}" width="700" height="350" />
-							<div><span>{{ BkNews.Title }}</span></div>
+							<img src="{{ asset(BkNews.imagePath) }}" width="700" height="350" />						
+					{% endfor %}
+					{% for New in News %}
+							<div><span>{{ New.Title }}</span></div>
 						</li>
 					{% endfor %}
 				</ul>

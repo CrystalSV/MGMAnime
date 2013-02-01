@@ -58,9 +58,26 @@
 
                 {% endblock %}
                 {% block news %}
-                    
+
                 {% endblock %}
+                <section id="side-bar">
+                    {% block sideBar %}
+                        
+                    {% endblock %}
+                </section>
             </section>
+            <footer>
+                <div>
+                    <img src="{{ asset('bundles/crystalnews/images/magma-short.png') }}" width="100" height=·"71" />
+                    <p>
+                        MGM Anime - Latinoamerica <br />
+                        &copy; 2013
+                    </p>
+                    <p class="credits">
+                        Powered by Crystal
+                    </p>
+                </div>
+            </footer>
         </section>
     </body>
 </html>
