@@ -22,11 +22,10 @@ addAccess:
     pattern:   /admin/addAccess
     defaults:  { _controller: CrystalNewsBundle:access:add }
 
-<<<<<<< HEAD
 createNews:
     pattern:   /admin/createNews
     defaults:  { _controller: CrystalNewsBundle:news:add }
-=======
+
 listCategories:
     pattern:   /admin/listCategories
     defaults:  { _controller: CrystalNewsBundle:categories:list }
@@ -43,10 +42,6 @@ deleteCategories:
     pattern:   /admin/deleteCategories/{id}
     defaults:  { _controller: CrystalNewsBundle:categories:delete }
 
-<<<<<<< HEAD
->>>>>>> 21f7406c1dba8180e8430b9b2ef370b2903eb530
-=======
-<<<<<<< HEAD
 listMultimedia:
     pattern:   /admin/listMultimedia
     defaults:  { _controller: CrystalNewsBundle:multimedia:list }
@@ -62,10 +57,3 @@ updateMultimedia:
 deleteMultimedia:
     pattern:   /admin/deleteMultimedia/{id}
     defaults:  { _controller: CrystalNewsBundle:multimedia:delete }
-=======
->>>>>>> c20951191328bc2be6b07243c73cd474bab5296a
->>>>>>> e3b4ac5f91289c61c6ed2cfd774cc5842a50669e
-
-
-
-
