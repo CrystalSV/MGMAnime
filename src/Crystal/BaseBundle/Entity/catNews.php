@@ -12,6 +12,11 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class catNews
 {
+     public function __construct()
+    {
+        $this->idMultimedia = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
     /**
      * @var integer
      *

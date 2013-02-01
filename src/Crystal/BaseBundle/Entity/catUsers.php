@@ -12,6 +12,12 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class catUsers
 {
+    
+    public function __construct()
+    {
+        $this->idUser = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * @var integer
      *
@@ -101,6 +107,7 @@ class catUsers
     {
         return $this->id;
     }
+
 
     /**
      * @ORM\OneToMany(targetEntity="catNews", mappedBy="idUser")

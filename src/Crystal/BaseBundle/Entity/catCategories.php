@@ -12,6 +12,10 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class catCategories
 {
+     public function __construct()
+    {
+        $this->idCategory = new \Doctrine\Common\Collections\ArrayCollection();
+    }
     /**
      * @var integer
      *
