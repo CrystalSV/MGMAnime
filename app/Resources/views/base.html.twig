@@ -3,17 +3,64 @@
     <head>
         <meta charset="UTF-8" />
         <title>{% block title %}MGM Anime{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         {% block stylesheets %}
-            {% stylesheets filter='cssrewrite' 
-                'bundles/CrystalNewsBundle/css/*'
+            {% stylesheets output='css/*.css' filter='cssrewrite' debug=false
+                'bundles/crystalnews/css/style.less'
             %}
-                <link rel="stylesheet/less" type="text/css" href="{{ asset_url }}" />
+                <link href="{{ asset_url }}" rel="stylesheet/less" media="screen" />
             {% endstylesheets %}
         {% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block javascripts %}
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+            {% javascripts 
+                'bundles/crystalnews/js/*'
+            %}
+                <script src="{{ asset_url }}" ></script>
+            {% endjavascripts %}            
+        {% endblock %}        
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+        <section id="container">
+            <header>
+                <a href="{{ path('Index') }}">
+                    <div>
+                        <h1>MGM Anime</h1>                      
+                    </div>
+                </a>
+            </header>
+            <aside id="social-media">
+                <div>
+                    <a href="http://www.fb.com/misgustosmisanimes" target="__blank"><img src="{{ asset('bundles/crystalnews/images/fb.png') }}" width="60" height="60"/></a>
+                </div>
+                <div>
+                    <a href="http://www.twitter.com/MGMAnime" target="__blank"><img src="{{ asset('bundles/crystalnews/images/twt.png') }}" width="60" height="60" /></a>
+                </div>
+                <div>
+                    <a href="http://www.pinterest.com/MGMAnime" target="__blank"><img src="{{ asset('bundles/crystalnews/images/pin.png') }}" width="60" height="60" /></a>
+                </div>
+            </aside>
+            <nav>
+                <ul>
+                    <a href="{{ path('Index') }}"><li>Inicio</li></a>
+                    <a href=""><li>Revista</li></a>
+                    <a href=""><li>Podcasting</li></a>
+                    <a href=""><li>Staff</li></a>
+                    <a href=""><li>FAQ's</li></a>
+                    <a href=""><li>Konata's Mail</li></a>
+                </ul>
+            </nav>
+            {% block topMenu %}
+                
+            {% endblock %}
+            <section id="content">
+                {% block breaking %}
+
+                {% endblock %}
+                {% block news %}
+                    
+                {% endblock %}
+            </section>
+        </section>
     </body>
 </html>
