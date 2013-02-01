@@ -11,13 +11,13 @@
                 <link href="{{ asset_url }}" rel="stylesheet/less" media="screen" />
             {% endstylesheets %}
         {% endblock %}
-        {% block javascripts %}
-            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        {% block javascripts %}            
             {% javascripts 
                 'bundles/crystalnews/js/*'
             %}
                 <script src="{{ asset_url }}" ></script>
             {% endjavascripts %}            
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
         {% endblock %}        
     </head>
     <body>
