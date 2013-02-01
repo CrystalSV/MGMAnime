@@ -46,8 +46,6 @@ class ctrAvatars
         return $this->id;
     }
 
-     
-
     /**
      * Set type
      *
