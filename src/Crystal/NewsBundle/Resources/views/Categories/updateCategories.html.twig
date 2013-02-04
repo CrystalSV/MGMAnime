@@ -1,11 +1,13 @@
-<form method="post">
-<table cellpadding="0" cellspacing="0" >
-	<tr>
-		<td>Nombre de la Categoria:</td><td><input type="text" name="txtName" value="{{ category.Name}}" /></td>
-	</tr>
-	<tr>
-		<td><input type="submit" name="btnAddAccess" value="Guardar"/></td>
-	</tr>
-	
-</table>
-</form>
+{% extends 'CrystalNewsBundle:Admin:admin.html.twig' %}
+	{% block layout %}	
+		<form method="post">
+			<table cellpadding="0" cellspacing="0" >
+				<tr>
+					<td>Nombre de la Categoria:</td><td><input type="text" name="txtName" value="{{ category.Name}}" /></td>
+				</tr>
+				<tr>
+					<td><input type="submit" name="btnAddAccess" value="Guardar"/></td>
+				</tr>	
+			</table>
+		</form>
+	{% endblock %}
