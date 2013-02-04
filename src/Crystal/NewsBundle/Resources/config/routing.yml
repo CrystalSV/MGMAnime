@@ -31,7 +31,7 @@ listCategories:
     defaults:  { _controller: CrystalNewsBundle:categories:list }
 
 addCategories:
-    pattern:   /userList/addCategories
+    pattern:   /admin/addCategories
     defaults:  { _controller: CrystalNewsBundle:categories:add }
 
 updateCategories:

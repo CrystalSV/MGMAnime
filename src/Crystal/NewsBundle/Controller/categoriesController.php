@@ -11,7 +11,7 @@ class categoriesController extends Controller
 		$category = new catCategories();
 	   	$em = $this->getDoctrine()->getEntityManager();
 		$category = $em->getRepository('CrystalBaseBundle:catCategories')->findAll();
-		return $this->render('CrystalNewsBundle:categories:listCategories.html.twig', array('category' => $category));
+		return $this->render('CrystalNewsBundle:Categories:listCategories.html.twig', array('category' => $category));
 	}
 
 	public function addAction()
@@ -37,7 +37,7 @@ class categoriesController extends Controller
 		}
 		else
 		{
-			return $this->render('CrystalNewsBundle:categories:addCategories.html.twig', array('category' => $category));
+			return $this->render('CrystalNewsBundle:Categories:addCategories.html.twig', array('category' => $category));
 		}
 	}
 
@@ -61,7 +61,7 @@ class categoriesController extends Controller
 			}
 			else
 			{
-				return $this->render('CrystalNewsBundle:categories:updateCategories.html.twig', array('category' => $category));
+				return $this->render('CrystalNewsBundle:Categories:updateCategories.html.twig', array('category' => $category));
 			}
 
 	}

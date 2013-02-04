@@ -1,16 +1,22 @@
-<table cellpadding="0" celspacing="0"  bordercolor="blue"   border="1">
+<table cellpadding="0" celspacing="0"  bordercolor="pink" border="1">
 <tr >
-	
-	<td colspan="2"   style="width:50%; height:auto;" align="center"><b>...Multimedia...</b></<td>
-	<td><a href="{{ path('addCategories') }}">Agregar<a/></td>	
+	<td colspan="2"><b>...Multimedia...</b></<td>
+	<td colspan="3" align="center"><a href="{{ path('addMultimedia') }}">Agregar<a/></td>
 </tr>
+	<tr>
+		<td>link</td>
+		<td>Tipo</td>
+
+    </tr>
 {% for multimedias in multimedia  %}
 	<tr>
-		<td>{{multimedias.path}}</td>
-		<td>{{multimedias.type}}</td>
-</a>
+	    <td><strong>{{multimedias.path}}<strong/></td>
+		<td><strong>{{multimedias.type}}<strong/></td>
+		<td><a href="{{ path('updateMultimedia', {'id' : (multimedias.id)}) }}">Update<a/> </td>
+
+		<td> <a href="{{ path('deleteMultimedia', {'id' : (multimedias.id)}) }}">Delete</a> </td>
 	</tr>
 
 {% endfor %}
 
-</table>																		
+</table>	
