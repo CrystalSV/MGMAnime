@@ -60,4 +60,4 @@ deleteMultimedia:
 
 adminControlPanel:
     pattern: /admin
-    defaults: { _controller: CrystalNewsBundle:ControlPanel:admin }
+    defaults: { _controller: CrystalNewsBundle:adminViews:index }
