@@ -57,3 +57,7 @@ updateMultimedia:
 deleteMultimedia:
     pattern:   /admin/deleteMultimedia/{id}
     defaults:  { _controller: CrystalNewsBundle:multimedia:delete }
+
+adminControlPanel:
+    pattern: /admin
+    defaults: { _controller: CrystalNewsBundle:adminViews:index }

@@ -1,0 +1,88 @@
+/* Functions */
+
+.gradient(@color1, @color2)
+{
+	background: @color1;
+	background: -moz-linear-gradient(top, @color1 0%, @color2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color1), color-stop(100%,@color2));
+	background: -webkit-linear-gradient(top, @color1 0%,@color2 100%);
+	background: -o-linear-gradient(top, @color1 0%,@color2 100%);
+	background: -ms-linear-gradient(top, @color1 0%,@color2 100%);
+	background: linear-gradient(to bottom, @color1 0%,@color2 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{color1}', endColorstr='@{color2}',GradientType=0 );
+}
+
+.center()
+{
+	margin: 0 auto;
+}
+
+/* Fonts */
+
+@import url(http://fonts.googleapis.com/css?family=Open+Sans);
+
+@font-face
+{
+	font-family: 'Opificio';
+	src: url(../fonts/Opificio.ttf);
+}
+
+@font-face
+{
+	font-family: 'Stentiga';
+	src: url(../fonts/stentiga.otf);
+}
+
+@font-face
+{
+	font-family: 'Champagne';
+	src: url(../fonts/Champagne.ttf);
+}
+
+
+/* General */
+
+*
+{
+	font-family: 'Open sans', sans-serif;
+}
+
+body img { width: 100%; height: auto;}
+
+body
+{
+	
+}
+
+header
+{
+	.gradient(#FF3019, #cf0404);
+	
+	color: #FFF;
+	height: 45px;
+	text-align: center;
+}
+
+#content
+{
+	min-height: 400px;
+}
+
+nav
+{
+	display: inline-block;
+	width: 15%;
+	min-height: 400px;
+}
+
+#layout
+{
+	width: 70%;
+	min-height: 400px;
+}
+
+#side-bar
+{
+	width: 15%;
+	min-height: 400px;
+}
