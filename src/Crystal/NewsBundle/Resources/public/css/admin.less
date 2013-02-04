@@ -17,6 +17,24 @@
 	margin: 0 auto;
 }
 
+.transition()
+{
+	-webkit-transition:all 1s ease;
+	-moz-transition:all 1s ease;
+	-o-transition:all 1s ease;
+	-ms-transition:all 1s ease;
+	transition:all 1s ease;
+}
+
+.transitionHover()
+{
+	-webkit-transition:all 1s ease;
+	-moz-transition:all 1s ease;
+	-o-transition:all 1s ease;
+	-ms-transition:all 1s ease;
+	transition:all 1s ease;
+}
+
 /* Fonts */
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
@@ -51,38 +69,87 @@ body img { width: 100%; height: auto;}
 
 body
 {
-	
+	margin: 0;
+	margin-top: 0;
+	.gradient(#EEEEEE, #CCCCCC);
+}
+
+a
+{
+	color: #666;
+	text-decoration: none;
+	.transition();
+
+	&:hover
+	{
+		.transitionHover();
+		color: #FF3019;
+	}
 }
 
 header
 {
 	.gradient(#FF3019, #cf0404);
-	
+
 	color: #FFF;
 	height: 45px;
 	text-align: center;
+
+	a 
+	{
+		color: #FFF;
+		text-decoration: none;
+
+		h1
+		{
+			margin: 0;
+		}
+	}
 }
 
 #content
-{
-	min-height: 400px;
+{	
+	min-height: 550px;	
 }
 
 nav
-{
-	display: inline-block;
+{	
+	font-family: Opificio;
 	width: 15%;
-	min-height: 400px;
+	display: inline-block;
+	height: 250px;
+	vertical-align: bottom;
+	min-height: 550px;
+
+	ul
+	{
+		list-style: none;
+
+		li
+		{
+			text-transform: uppercase;
+			line-height: 30px;
+
+			&:last-child
+			{
+				border: none;
+			}
+			
+		}
+	}
+
 }
 
 #layout
 {
-	width: 70%;
-	min-height: 400px;
+	display: inline-block;
+	width: 68%;
+	min-height: 550px;
 }
 
 #side-bar
 {
+	display: inline-block;
 	width: 15%;
-	min-height: 400px;
+	min-height: 550px;
 }

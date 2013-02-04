@@ -10,6 +10,11 @@
             %}
                 <link href="{{ asset_url }}" rel="stylesheet/less" media="screen" />
             {% endstylesheets %}
+            {% stylesheets output='css/*.css' filter='cssrewrite' debug=false
+                'bundles/crystalnews/css/normalize.css'
+            %}
+                <link href="{{asset_url}}" rel="stylesheet" media="screen" />
+            {% endstylesheets %}
         {% endblock %}
         {% block javascripts %}            
             {% javascripts 
@@ -25,7 +30,7 @@
             <header>
                 <a href="{{ path('Index') }}">
                     <div>
-                        <h1>Panel Administrativo</h1>                      
+                        <h1>Crystal Panel</h1>                      
                     </div>
                 </a>
             </header>
@@ -45,23 +50,11 @@
 
                         {% endblock %}
                     </section>
-                    <section id="side-bar">
-                        {% block sideBar %}
+                    {% block sideBar %}
+                        <section id="side-bar">
                             
-                        {% endblock %}
-               		</section>
-                    <footer>
-                        <div>
-                            <img src="{{ asset('bundles/crystalnews/images/magma-short.png') }}" width="100" height=·"71" />
-                            <p>
-                                MGM Anime - Latinoamerica <br />
-                                &copy; 2013
-                            </p>
-                            <p class="credits">
-                                Powered by Crystal
-                            </p>
-                        </div>
-                    </footer>
+                   		</section>
+                    {% endblock %}
                 </section>
         </section>
     </body>

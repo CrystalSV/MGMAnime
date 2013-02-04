@@ -1,0 +1,23 @@
+{% extends ::@Crystal/NewsBundele/Resources/views/Admin/admin.html.twig%}
+{% block stylesheet %}
+	{{ parent() }}
+{% endblock %}
+{% block javascript %}
+	{{ parent() }}
+{% endblock %}
+{% block menu %}
+	{{ parent() }}
+{% endblock %}
+{% block layout %}
+<table cellpading=0 cellspacing=0>
+<tr>
+	<td>Usuario:</td><td><input type="text" name="txtUserAdmin" /></td>
+	<td>Contraseña:</td><td><input type="text" name="txtPassAdmin" /></td>
+</tr>
+<tr>
+	<td><input type="submit" name="btnDo" value="JackIn"/></td>
+</tr>
+</table>
+{% endblock %}
+{% block sideBar%}
+{% endblock %}
