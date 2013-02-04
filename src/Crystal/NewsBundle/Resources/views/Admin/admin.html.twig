@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="UTF-8" />
+        <title>{% block title %}MGM Anime - Crystal Panel{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% block stylesheets %}
+            {% stylesheets output='css/*.css' filter='cssrewrite' debug=false
+                'bundles/crystalnews/css/admin.less'
+            %}
+                <link href="{{ asset_url }}" rel="stylesheet/less" media="screen" />
+            {% endstylesheets %}
+        {% endblock %}
+        {% block javascripts %}
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        {% endblock %}       
+</head>
+<body>
+        <section id="container">
+            <header>
+                <a href="{{ path('Index') }}">
+                    <div>
+                        <h1>Panel Administrativo</h1>                      
+                    </div>
+                </a>
+            </header>
+                <section id="content">
+		            <nav>
+		                <ul>
+		                    <a href=""><li>Accion1</li></a>
+		                    <a href=""><li>Accion2</li></a>
+		                    <a href=""><li>Accion3</li></a>
+		                    <a href=""><li>Accion4</li></a>
+		                </ul>
+		            </nav>
+                <section id="layout">
+
+                </section>
+                <section id="description">
+           		</section>
+            <footer>
+                <div>
+                    <img src="{{ asset('bundles/crystalnews/images/magma-short.png') }}" width="100" height=·"71" />
+                    <p>
+                        MGM Anime - Latinoamerica <br />
+                        &copy; 2013
+                    </p>
+                    <p class="credits">
+                        Powered by Crystal
+                    </p>
+                </div>
+            </footer>
+        </section>
+    </body>
+</html>
+</html>
