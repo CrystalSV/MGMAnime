@@ -3,12 +3,12 @@
 .gradient(@color1, @color2)
 {
 	background: @color1;
-	background: -moz-linear-gradient(top, @color1 0%, @color2 100%);
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color1), color-stop(100%,@color2));
-	background: -webkit-linear-gradient(top, @color1 0%,@color2 100%);
-	background: -o-linear-gradient(top, @color1 0%,@color2 100%);
-	background: -ms-linear-gradient(top, @color1 0%,@color2 100%);
-	background: linear-gradient(to bottom, @color1 0%,@color2 100%);
+	background: -moz-linear-gradient(top, @color1 0%, @color2 100%) no-repeat;
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,@color1), color-stop(100%,@color2)) no-repeat;
+	background: -webkit-linear-gradient(top, @color1 0%,@color2 100%) no-repeat;
+	background: -o-linear-gradient(top, @color1 0%,@color2 100%) no-repeat;
+	background: -ms-linear-gradient(top, @color1 0%,@color2 100%) no-repeat;
+	background: linear-gradient(to bottom, @color1 0%,@color2 100%) no-repeat;
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@{color1}', endColorstr='@{color2}',GradientType=0 );
 }
 
@@ -33,6 +33,24 @@
 	-o-transition:all 1s ease;
 	-ms-transition:all 1s ease;
 	transition:all 1s ease;
+}
+
+.radius(@size)
+{
+	border-radius: @size;
+	-webkit-border-radius: @size;
+	-moz-border-radius: @size;
+	-o-border-radius: @size;
+	-ms-border-radius: @size;
+}
+
+.textBoxShadow(@color)
+{
+	box-shadow: 0px 0px 8px @color;
+	-webkit-box-shadow: 0px 0px 8px @color;
+	-moz-box-shadow: 0px 0px 8px @color;
+	-o-box-shadow: 0px 0px 8px @color;
+	-ms-box-shadow: 0px 0px 8px @color;
 }
 
 /* Fonts */
@@ -71,7 +89,7 @@ body
 {
 	margin: 0;
 	margin-top: 0;
-	.gradient(#EEEEEE, #CCCCCC);
+	.gradient(#d2ebf9, #feffff);
 }
 
 a
@@ -89,7 +107,7 @@ a
 
 header
 {
-	.gradient(#FF3019, #cf0404);
+	.gradient(#00b7ea, #009EC3);
 
 	color: #FFF;
 	height: 45px;
@@ -103,7 +121,7 @@ header
 		&:hover
 		{
 			.transitionHover();
-			color: #CCC;
+			color: #057ed0 / 1.15;
 		}
 
 		h1
@@ -116,6 +134,7 @@ header
 #content
 {	
 	min-height: 550px;	
+	text-align: center;
 }
 
 nav
@@ -158,4 +177,48 @@ nav
 	display: inline-block;
 	width: 15%;
 	min-height: 550px;
+}
+
+.text
+{
+	.radius(4px);
+	.textBoxShadow(#d9d9d9);
+
+	border: 1px solid #c4c4c4;
+	width: 180px;
+    height: 18px;
+    font-size: 13px;
+    padding: 4px 4px 4px 4px;
+
+    &:focus
+    {
+    	outline: none;
+    	border: 1px solid #7bc1f7;
+    	.textBoxShadow(#7bc1f7);
+    }
+
+}
+
+.button
+{
+	.gradient(#33bcef, #019ad2);
+
+	color: #FFF;
+	text-shadow: 0 -1px 1px rgba(0,0,0,.25);
+	border: 1px solid #057ed0;
+	box-shadow: inset 0 1px 0 rgba(255,255,255,.1);
+	border-radius: 4px;
+	padding: 4px;
+	width: 100px;
+	font-weight: bold;
+
+	&:hover
+	{
+		.gradient(#33bcef / 1.07, #057ed0 / 1.05);
+	}
+
+	&:active
+	{
+		background: #057ed0 / 1.1;
+	}
 }
