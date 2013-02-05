@@ -65,11 +65,11 @@
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans);
 
-	@font-face
-	{
-		font-family: 'Opificio';
-		src: url(../fonts/Opificio.ttf);
-	}
+@font-face
+{
+	font-family: 'Opificio';
+	src: url(../fonts/Opificio.ttf);
+}
 
 @font-face
 {
@@ -88,7 +88,7 @@ body img{ width: 100%; height: auto; }
 body
 {
 	background: url('https://www.getpersonas.com/static_json/6/1/146261/preview_large.jpg?1269430763');
-	font-family: 'Opificio', sans-serif;
+	font-family: 'Open-sans', sans-serif;
 	margin-bottom: 30px;
 
 	a
@@ -478,7 +478,6 @@ nav
 	.center();
 
 	margin-top: 20px;
-	margin-bottom: 50px;
 	max-width: 300px;
 	height: auto;
 	position: relative;
@@ -493,6 +492,39 @@ nav
 		color: #FFF;
 		font-size: 2.1em;
 	}
+}
+
+#table
+{
+	.center();
+
+	width: 60%;
+}
+
+.row
+{
+	div
+	{
+		display: inline-block;
+		margin: 1;
+		width: 49%;
+	}
+}
+
+.texts
+{
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    box-shadow: 0 0 5px #DDD inset;
+    color: #666;
+    padding: 2% 3%;
+    width: 95%;
+    outline: none;
+
+    &:focus
+    {
+    	box-shadow: 0 0 7px #000;
+    }
 }
 
 footer
