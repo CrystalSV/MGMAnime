@@ -1,0 +1,34 @@
+{% extends 'CrystalNewsBundle:Admin:admin.html.twig' %}
+	{% block layout %}
+		<table cellpadding="0" celspacing="0"  border="1" align="center">
+		<tr >
+			<td colspan="6" style="color:red;"><b>...Lista de Noticias...</b></td>
+			
+		</tr>
+		<tr>
+			<td>Noticia</td>
+			<td>Fecha</td>
+			<td>Keywords</td>
+			<td>Categorias</td>
+			<td colspan="5" align="center"><a href="{{ path('createNews') }}">Agregar<a/></td>
+
+	    </tr>
+		{% for news in new  %}
+			<tr>
+				<td><strong>{{news.content}}<strong/></td>
+				<td><strong>{{news.date}}<strong/></td>
+				<td><strong>{{news.keywords}}<strong/></td>
+				<td>
+					<select>
+						{% for categories in category %}
+							<option value="{{categories.id}}">{{categories.Name}}</option>
+						{% endfor %}
+					</select>
+				</td>	
+
+				<td> <a href="{{ path('updateNews', {'id' : (news.id)}) }}">Update<a/> </td>
+				<td> <a href="{{ path('deleteNews', {'id' : (news.id)}) }}">Delete</a> </td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}																

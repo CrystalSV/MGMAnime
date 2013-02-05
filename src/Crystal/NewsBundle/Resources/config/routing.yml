@@ -22,13 +22,26 @@ addAccess:
     pattern:   /admin/addAccess
     defaults:  { _controller: CrystalNewsBundle:access:add }
 
+listNews:
+    pattern:   /admin/listNews
+    defaults:  { _controller: CrystalNewsBundle:news:list }
+
 createNews:
     pattern:   /admin/createNews
     defaults:  { _controller: CrystalNewsBundle:news:add }
 
+updateNews:
+    pattern:   /admin/updateNews/{id}
+    defaults:  { _controller: CrystalNewsBundle:news:update }
+
+deleteNews:
+    pattern:   /admin/deleteNews/{id}
+    defaults:  { _controller: CrystalNewsBundle:news:delete }
+
 listCategories:
     pattern:   /admin/listCategories
     defaults:  { _controller: CrystalNewsBundle:categories:list }
+
 
 addCategories:
     pattern:   /admin/addCategories
