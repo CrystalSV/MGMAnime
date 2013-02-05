@@ -4,19 +4,19 @@
 			<table cellpadding="0" cellspacing="0" >
 				
 				<tr>
-					<td>Contenido:</td><td><input type="text" value="{{news.content}}" /></td>
+					<td>Contenido:</td><td><input type="text" name ="txtContent" value="{{news.content}}" /></td>
 				</tr>
 				<tr>
-					<td>Fecha:</td><td><input type="text" value="{{news.date}}" /></td>
+					<td>Fecha:</td><td><input type="text" name ="txtDate" value="{{news.date}}" /></td>
 				</tr>
 				<tr>
-					<td>Palabra clave:</td><td><input type="text" value="{{news.keywords}}"/></td>
+					<td>Palabra clave:</td><td><input type="text"  name ="txtKeywords" value="{{news.keywords}}"/></td>
 				</tr>
 				
 				<tr>
 						<td>Categorias:</td>
 						<td>
-							<select>
+							<select name="txtCategory" >
 								{% for categories in category %}
 									<option value="{{categories.id}}">{{categories.Name}}</option>
 								{% endfor %}

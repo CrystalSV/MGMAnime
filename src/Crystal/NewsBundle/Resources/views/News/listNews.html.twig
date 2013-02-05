@@ -18,14 +18,14 @@
 				<td><strong>{{news.content}}<strong/></td>
 				<td><strong>{{news.date}}<strong/></td>
 				<td><strong>{{news.keywords}}<strong/></td>
-				<td>
-					<select>
+					<td>
 						{% for categories in category %}
-							<option value="{{categories.id}}">{{categories.Name}}</option>
+							{% if categories == news.idCategory %}
+									{{ categories.Name }}
+							{% endif %}
 						{% endfor %}
-					</select>
-				</td>	
-
+						</td>
+				
 				<td> <a href="{{ path('updateNews', {'id' : (news.id)}) }}">Update<a/> </td>
 				<td> <a href="{{ path('deleteNews', {'id' : (news.id)}) }}">Delete</a> </td>
 			</tr>

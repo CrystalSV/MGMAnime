@@ -4,6 +4,7 @@ namespace Crystal\NewsBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\catNews;
 use Crystal\BaseBundle\Entity\catCategories;
+use Crystal\BaseBundle\Entity\catUsers;
 
 class newsController extends Controller
 {
@@ -22,6 +23,7 @@ class newsController extends Controller
 		$news = new catNews();
 		$request = $this->getRequest();
 		$category = new catCategories();
+		$user = new catUsers();
 		$em = $this->getDoctrine()->getEntityManager();
 
 		if ($request->getMethod() == 'POST') 
@@ -34,6 +36,7 @@ class newsController extends Controller
 			$news->setDate($_POST->get('txtDate'));
 			$news->setKeywords($_POST->get('txtKeywords'));
 			$news->setidCategory($category);
+			$news->setidUser($user);
 			
 			
 			$em->persist($news);
@@ -45,7 +48,7 @@ class newsController extends Controller
 		}
 		else
 		{
-			return $this->render('CrystalNewsBundle:News:createNews.html.twig', array('news' => $news, 'category' => $category));
+			return $this->render('CrystalNewsBundle:News:createNews.html.twig', array('news' => $news, 'category' => $category, 'user' => $user));
 		}
 	}
 	public function updateAction($id)
@@ -83,7 +86,7 @@ class newsController extends Controller
 		{
 			$em = $this->getDoctrine()->getEntitymanager();
 			$news = $em->getRepository('CrystalBaseBundle:catNews')->find($id);
-			$category = $em->getRepository('CrystalBaseBundle:catCategories')->findByidCategory($id);
+			$category = $em->getRepository('CrystalBaseBundle:catCategories')->find($id);
 		
 			$em->remove($news);
 			$em->flush();

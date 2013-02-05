@@ -130,7 +130,7 @@ class catUsers
      **/
      private $idAvatar;
 
-     public function setidAvatar(\Crystal\BaseBundle\ctrAvatars $idAvatar)
+     public function setidAvatar(\Crystal\BaseBundle\Entity\ctrAvatars $idAvatar)
      {
         $this->idAvatar = $idAvatar;
      }
