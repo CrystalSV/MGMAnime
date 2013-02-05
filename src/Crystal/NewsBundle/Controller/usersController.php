@@ -11,10 +11,10 @@ class usersController extends Controller
 		$user = new catUsers();
 	   	$em = $this->getDoctrine()->getEntityManager();
 		$user = $em->getRepository('CrystalBaseBundle:catUsers')->findAll();
-		return $this->render('CrystalNewsBundle:users:listUsers.html.twig', array('user' => $user));
+		return $this->render('CrystalNewsBundle:Users:listUsers.html.twig', array('user' => $user));
 	}
 
-	public function addAction()
+	public function registerAction()
 	{
 		$user = new catUsers();
 
@@ -40,13 +40,13 @@ class usersController extends Controller
 			$em->persist($user);
 			$em->flush();
 				
-			return $this->redirect($this->generateURL('listUsers'));
+			return $this->redirect($this->generateURL('Index'));
 
 
 		}
 		else
 		{
-			return $this->render('CrystalNewsBundle:users:addUsers.html.twig', array('user' => $user));
+			return $this->render('CrystalNewsBundle:Users:addUsers.html.twig', array('user' => $user));
 		}
 	}
 
@@ -71,7 +71,6 @@ class usersController extends Controller
 				$user->setHobbies($_POST->get('txtHobbies'));
 				$user->setBirthday($_POST->get('txtBirthday'));
 				$user->setWebsite($_POST->get('txtWebsite'));
-			
 				$em->persist($user);
 				$em->flush();
 
@@ -80,7 +79,7 @@ class usersController extends Controller
 			}
 			else
 			{
-				return $this->render('CrystalNewsBundle:users:updateUsers.html.twig', array('user' => $user));
+				return $this->render('CrystalNewsBundle:Users:updateUsers.html.twig', array('user' => $user));
 			}
 
 	}

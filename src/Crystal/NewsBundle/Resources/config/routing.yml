@@ -2,13 +2,13 @@ Index:
     pattern:  /
     defaults: { _controller: CrystalNewsBundle:Views:index }
 
-listUsers:
-    pattern:   /admin/listUsers
+userlist:
+    pattern:   /userlist
     defaults:  { _controller: CrystalNewsBundle:users:list }
 
-addUsers:
-    pattern:   /userList/addUsers
-    defaults:  { _controller: CrystalNewsBundle:users:add }
+register:
+    pattern:   /register
+    defaults:  { _controller: CrystalNewsBundle:users:register }
 
 updateUsers:
     pattern:   /admin/updateUsers/{id}
@@ -19,8 +19,45 @@ deleteUsers:
     defaults:  { _controller: CrystalNewsBundle:users:delete }
 
 addAccess:
-    pattern:   /admin/addAccess/{id}
+    pattern:   /admin/addAccess
     defaults:  { _controller: CrystalNewsBundle:access:add }
 
+createNews:
+    pattern:   /admin/createNews
+    defaults:  { _controller: CrystalNewsBundle:news:add }
 
+listCategories:
+    pattern:   /admin/listCategories
+    defaults:  { _controller: CrystalNewsBundle:categories:list }
 
+addCategories:
+    pattern:   /admin/addCategories
+    defaults:  { _controller: CrystalNewsBundle:categories:add }
+
+updateCategories:
+    pattern:   /admin/updateCategories/{id}
+    defaults:  { _controller: CrystalNewsBundle:categories:update }
+
+deleteCategories:
+    pattern:   /admin/deleteCategories/{id}
+    defaults:  { _controller: CrystalNewsBundle:categories:delete }
+
+listMultimedia:
+    pattern:   /admin/listMultimedia
+    defaults:  { _controller: CrystalNewsBundle:multimedia:list }
+
+addMultimedia:
+    pattern:   /userList/addMultimedia
+    defaults:  { _controller: CrystalNewsBundle:multimedia:add }
+
+updateMultimedia:
+    pattern:   /admin/updateMultimedia/{id}
+    defaults:  { _controller: CrystalNewsBundle:multimedia:update }
+
+deleteMultimedia:
+    pattern:   /admin/deleteMultimedia/{id}
+    defaults:  { _controller: CrystalNewsBundle:multimedia:delete }
+
+adminControlPanel:
+    pattern: /admin
+    defaults: { _controller: CrystalNewsBundle:adminViews:index }

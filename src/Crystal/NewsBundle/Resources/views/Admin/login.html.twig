@@ -1,0 +1,15 @@
+{% extends 'CrystalNewsBundle:Admin:admin.html.twig' %}
+
+{% block layout %}
+<table cellpading=0 cellspacing=0 align="right" style="margin-top: 100px; font-family: 'Opificio' sans-serif;">
+<tr>
+	<td>Usuario:</td><td><input type="text" name="txtUserAdmin" /></td>
+</tr>
+<tr>
+	<td>Contraseña:</td><td><input type="text" name="txtPassAdmin" /></td>
+</tr>
+<tr>
+	<td colspan="2" align="center"><input type="submit" name="btnDo" value="Login"/></td>
+</tr>
+</table>
+{% endblock %}

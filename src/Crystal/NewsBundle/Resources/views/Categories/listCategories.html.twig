@@ -1,0 +1,20 @@
+{% extends 'CrystalNewsBundle:Admin:admin.html.twig' %}
+	{% block layout %}
+		<table cellpadding="0" celspacing="0"  bordercolor="pink" border="1">
+		<tr >
+			<td><b>...Categorias...</b></<td>
+			<td colspan="2" align="center"><a href="{{ path('addCategories') }}">Agregar<a/></td>
+		</tr>
+		<tr>
+			<td>Nombre Categoria</td>
+
+	    </tr>
+		{% for categories in category  %}
+			<tr>
+				<td><strong>{{categories.name}}<strong/></td>
+				<td> <a href="{{ path('updateCategories', {'id' : (categories.id)}) }}">Update<a/> </td>
+				<td> <a href="{{ path('deleteCategories', {'id' : (categories.id)}) }}">Delete</a> </td>
+			</tr>
+		{% endfor %}
+	</table>
+{% endblock %}																

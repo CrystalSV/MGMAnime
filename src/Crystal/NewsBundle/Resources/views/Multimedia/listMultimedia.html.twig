@@ -1,0 +1,21 @@
+{% extends 'CrystalNewsBundle:Admin:admin.html.twig' %}
+	{% block layout %}
+		<table cellpadding="0" celspacing="0"  bordercolor="pink" border="1">
+		<tr >
+			<td colspan="2"><b>...Multimedia...</b></<td>
+			<td colspan="3" align="center"><a href="{{ path('addMultimedia') }}">Agregar<a/></td>
+		</tr>
+			<tr>
+				<td>link</td>
+				<td>Tipo</td>
+		    </tr>
+		{% for multimedias in multimedia  %}
+			<tr>
+			    <td><strong>{{multimedias.path}}<strong/></td>
+				<td><strong>{{multimedias.type}}<strong/></td>
+				<td><a href="{{ path('updateMultimedia', {'id' : (multimedias.id)}) }}">Update<a/> </td>
+				<td> <a href="{{ path('deleteMultimedia', {'id' : (multimedias.id)}) }}">Delete</a> </td>
+			</tr>
+		{% endfor %}
+		</table>
+	{% endblock %}	
