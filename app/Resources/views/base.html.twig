@@ -40,14 +40,14 @@
                     <a href="http://www.pinterest.com/MGMAnime" target="__blank"><img src="{{ asset('bundles/crystalnews/images/pin.png') }}" width="60" height="60" /></a>
                 </div>
             </aside>
-            <nav>
+            <nav {% block styleMenu %} {% endblock %}>
                 <ul>
                     <a href="{{ path('Index') }}"><li>Inicio</li></a>
                     <a href=""><li>Revista</li></a>
                     <a href=""><li>Podcasting</li></a>
                     <a href=""><li>Staff</li></a>
                     <a href=""><li>FAQ's</li></a>
-                    <a href=""><li>Konata's Mail</li></a>
+                    <a href=""><li class="last">Konata's Mail</li></a>
                 </ul>
             </nav>
             {% block topMenu %}
