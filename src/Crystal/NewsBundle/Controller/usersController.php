@@ -29,7 +29,6 @@ class usersController extends Controller
 			$user->setUserName($_POST->get('txtUserName'));
 			$user->setMail($_POST->get('txtMail'));
 			$user->setPass($_POST->get('txtPass'));
-			$user->setSignature($_POST->get('txtSignature'));
 			$user->setGender($_POST->get('txtGender'));
 			$user->setAge($_POST->get('txtAge'));
 			$user->setOcupations($_POST->get('txtOcupations'));
@@ -46,7 +45,7 @@ class usersController extends Controller
 		}
 		else
 		{
-			return $this->render('CrystalNewsBundle:Users:addUsers.html.twig', array('user' => $user));
+			return $this->render('CrystalNewsBundle:Default:register.html.twig', array('user' => $user));
 		}
 	}
 

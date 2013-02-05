@@ -20,4 +20,9 @@ class ViewsController extends Controller
 
         return $this->render('CrystalNewsBundle:Default:index.html.twig', array('BkNews' => $BkNews, 'News' => $News));
     }
+
+    public function registerAction()
+    {
+        return $this->render('CrystalNewsBundle:Default:register.html.twig');
+    }
 }

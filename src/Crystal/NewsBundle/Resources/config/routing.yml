@@ -7,7 +7,7 @@ userlist:
     defaults:  { _controller: CrystalNewsBundle:users:list }
 
 register:
-    pattern:   /register
+    pattern:   /registrate
     defaults:  { _controller: CrystalNewsBundle:users:register }
 
 updateUsers:
