@@ -26,11 +26,11 @@
 				}
 			}
 			
-			$folder = 'pics';
+			$folder = 'audio';
 			$type = explode('audio/', $this->audio->getClientMimeType());
 		
 			$file = $folder . '/' . $name .'.'. $type[1];
-			$this->img->move('audio', $file);
+			$this->audio->move('audio', $file);
 			return $file;
 
 		}
@@ -41,7 +41,7 @@
 			$maxSize = '104857600';
 			if($size < $maxSize)
 			{
-				$fullType = explode('audio/', $this->img->getClientMimeType());
+				$fullType = explode('audio/', $this->audio->getClientMimeType());
 				$type = $fullType[1];
 				if($type == 'mp3' || $type == 'ogg')
 				{
