@@ -3,9 +3,9 @@ Index:
     defaults: { _controller: CrystalNewsBundle:Views:index }
 
 userlist:
-    pattern:   /userlist
-    defaults:  { _controller: CrystalNewsBundle:users:list }
+    pattern:   /lista
+    defaults:  { _controller: CrystalNewsBundle:Users:list }
 
 register:
     pattern:   /registrate
-    defaults:  { _controller: CrystalNewsBundle:users:register }
+    defaults:  { _controller: CrystalNewsBundle:Users:register }
