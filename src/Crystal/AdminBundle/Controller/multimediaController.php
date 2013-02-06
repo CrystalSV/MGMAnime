@@ -1,5 +1,5 @@
 <?php
-namespace Crystal\NewsBundle\Controller;
+namespace Crystal\CrystalAdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\ctrMultimedia;
@@ -11,7 +11,7 @@ class multimediaController extends Controller
 		$multimedia = new ctrMultimedia();
 	   	$em = $this->getDoctrine()->getEntityManager();
 		$multimedia = $em->getRepository('CrystalBaseBundle:ctrMultimedia')->findAll();
-		return $this->render('CrystalNewsBundle:Multimedia:listMultimedia.html.twig', array('multimedia' => $multimedia));
+		return $this->render('CrystalCrystalAdminBundle:Multimedia:listMultimedia.html.twig', array('multimedia' => $multimedia));
 	}
 
 	public function addAction()
@@ -38,7 +38,7 @@ class multimediaController extends Controller
 		}
 		else
 		{
-			return $this->render('CrystalNewsBundle:Multimedia:addMultimedia.html.twig', array('multimedia' => $multimedia));
+			return $this->render('CrystalCrystalAdminBundle:Multimedia:addMultimedia.html.twig', array('multimedia' => $multimedia));
 		} 
 	}
 
@@ -62,7 +62,7 @@ class multimediaController extends Controller
 			}
 			else
 			{
-				return $this->render('CrystalNewsBundle:categories:updateCategories.html.twig', array('category' => $category));
+				return $this->render('CrystalCrystalAdminBundle:categories:updateCategories.html.twig', array('category' => $category));
 			}
 
 	}

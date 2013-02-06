@@ -1,5 +1,5 @@
 <?php
-namespace Crystal\NewsBundle\Controller;
+namespace Crystal\CrystalAdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\catNews;
@@ -15,7 +15,7 @@ class newsController extends Controller
 	   	$em = $this->getDoctrine()->getEntityManager();
 		$new = $em->getRepository('CrystalBaseBundle:catNews')->findAll();
 		$category = $em->getRepository('CrystalBaseBundle:catCategories')->findAll();
-		return $this->render('CrystalNewsBundle:News:listNews.html.twig', array('new' => $new, 'category' => $category));
+		return $this->render('CrystalCrystalAdminBundle:News:listNews.html.twig', array('new' => $new, 'category' => $category));
 	}
 
 	public function addAction()
@@ -48,7 +48,7 @@ class newsController extends Controller
 		}
 		else
 		{
-			return $this->render('CrystalNewsBundle:News:createNews.html.twig', array('news' => $news, 'category' => $category, 'user' => $user));
+			return $this->render('CrystalCrystalAdminBundle:News:createNews.html.twig', array('news' => $news, 'category' => $category, 'user' => $user));
 		}
 	}
 	public function updateAction($id)
@@ -78,7 +78,7 @@ class newsController extends Controller
 			}
 			else
 			{
-				return $this->render('CrystalNewsBundle:News:updateNews.html.twig', array('news' => $news, 'category' => $category));
+				return $this->render('CrystalCrystalAdminBundle:News:updateNews.html.twig', array('news' => $news, 'category' => $category));
 			}
 
 	}

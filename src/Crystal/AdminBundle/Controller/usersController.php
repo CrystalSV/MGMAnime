@@ -1,5 +1,5 @@
 <?php
-namespace Crystal\NewsBundle\Controller;
+namespace Crystal\CrystalAdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\catUsers;
@@ -11,7 +11,7 @@ class usersController extends Controller
 		$user = new catUsers();
 	   	$em = $this->getDoctrine()->getEntityManager();
 		$user = $em->getRepository('CrystalBaseBundle:catUsers')->findAll();
-		return $this->render('CrystalNewsBundle:Users:listUsers.html.twig', array('user' => $user));
+		return $this->render('CrystalCrystalAdminBundle:Users:listUsers.html.twig', array('user' => $user));
 	}
 
 	public function registerAction()
@@ -45,7 +45,7 @@ class usersController extends Controller
 		}
 		else
 		{
-			return $this->render('CrystalNewsBundle:Default:register.html.twig', array('user' => $user));
+			return $this->render('CrystalCrystalAdminBundle:Default:register.html.twig', array('user' => $user));
 		}
 	}
 
@@ -78,7 +78,7 @@ class usersController extends Controller
 			}
 			else
 			{
-				return $this->render('CrystalNewsBundle:Users:updateUsers.html.twig', array('user' => $user));
+				return $this->render('CrystalCrystalAdminBundle:Users:updateUsers.html.twig', array('user' => $user));
 			}
 
 	}

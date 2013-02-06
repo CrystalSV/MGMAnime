@@ -1,5 +1,5 @@
 <?php
-namespace Crystal\NewsBundle\Controller;
+namespace Crystal\CrystalAdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\ctrAccess;
@@ -33,7 +33,7 @@ class accessController extends Controller
 		else
 		{
 			$users = $em->getRepository('CrystalBaseBundle:catUsers')->findAll();
-			return $this->render('CrystalNewsBundle:Users:addAccess.html.twig', array('users' => $users));
+			return $this->render('CrystalCrystalAdminBundle:Users:addAccess.html.twig', array('users' => $users));
 		}
 	}
 
