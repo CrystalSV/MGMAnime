@@ -1,8 +1,9 @@
 <?php
-namespace Crystal\CrystalAdminBundle\Controller;
+namespace Crystal\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\catCategories;
+
 
 class categoriesController extends Controller
 {
@@ -11,7 +12,7 @@ class categoriesController extends Controller
 		$category = new catCategories();
 	   	$em = $this->getDoctrine()->getEntityManager();
 		$category = $em->getRepository('CrystalBaseBundle:catCategories')->findAll();
-		return $this->render('CrystalCrystalAdminBundle:Categories:listCategories.html.twig', array('category' => $category));
+		return $this->render('CrystalAdminBundle:Categories:listCategories.html.twig', array('category' => $category));
 	}
 
 	public function addAction()
@@ -37,7 +38,7 @@ class categoriesController extends Controller
 		}
 		else
 		{
-			return $this->render('CrystalCrystalAdminBundle:Categories:addCategories.html.twig', array('category' => $category));
+			return $this->render('CrystalAdminBundle:Categories:addCategories.html.twig', array('category' => $category));
 		}
 	}
 
@@ -61,7 +62,7 @@ class categoriesController extends Controller
 			}
 			else
 			{
-				return $this->render('CrystalCrystalAdminBundle:Categories:updateCategories.html.twig', array('category' => $category));
+				return $this->render('CrystalAdminBundle:Categories:updateCategories.html.twig', array('category' => $category));
 			}
 
 	}

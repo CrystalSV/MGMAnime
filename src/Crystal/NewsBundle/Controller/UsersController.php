@@ -5,7 +5,7 @@ namespace Crystal\NewsBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\catUsers;
 
-class ViewsController extends Controller
+class UsersController extends Controller
 {
 
     public function listAction()
