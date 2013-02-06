@@ -1,0 +1,7 @@
+parameters:
+#    crystal_admin.example.class: Crystal\AdminBundle\Example
+
+services:
+#    crystal_admin.example:
+#        class: %crystal_admin.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	 <meta charset="UTF-8" />
+        <title>{% block title %}MGM Anime - Crystal Panel{% endblock %}</title>
+        <link rel="icon" type="image/x-icon" href="{{ asset('bundles/crystalnews/images/favicon.ico') }}" />
+        {% block stylesheets %}
+            {% stylesheets output='css/*.css' filter='cssrewrite' debug=false
+                'bundles/crystalnews/css/admin.less'
+            %}
+                <link href="{{ asset_url }}" rel="stylesheet/less" media="screen" />
+            {% endstylesheets %}
+            {% stylesheets output='css/*.css' filter='cssrewrite' debug=false
+                'bundles/crystalnews/css/normalize.css'
+            %}
+                <link href="{{asset_url}}" rel="stylesheet" media="screen" />
+            {% endstylesheets %}
+        {% endblock %}
+        {% block javascripts %}            
+            {% javascripts 
+                'bundles/crystalnews/js/less.js'
+            %} 
+            <script src="{{ asset_url }}" ></script>
+            {% endjavascripts %}            
+            <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+        {% endblock %}       
+</head>
+<body>
+        <section id="container">
+            <header>
+                <a href="{{ path('Index') }}">
+                    <div>
+                        <h1>Crystal Panel</h1>                      
+                    </div>
+                </a>
+            </header>
+                <section id="content">
+		            {% block menu %}
+                        
+                    {% endblock %}
+                    <section id="layout">
+                        {% block layout %}
+
+                        {% endblock %}
+                    </section>
+                    {% block sideBar %}
+                        <section id="side-bar">
+                            
+                   		</section>
+                    {% endblock %}
+                </section>
+        </section>
+    </body>
+</html>
+</html>
