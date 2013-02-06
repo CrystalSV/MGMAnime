@@ -84,6 +84,14 @@ class accessController extends Controller
       
 	}
 
+	public function listAction()
+	{
+		$access = new ctrAccess();
+	   	$em = $this->getDoctrine()->getEntityManager();
+		$access = $em->getRepository('CrystalBaseBundle:ctrAccess')->findAll();
+		return $this->render('CrystalAdminBundle:Admin:listAdmin.html.twig', array('access' => $access));
+	}
+
 }
 
 ?>

@@ -36,12 +36,12 @@
             </header>
                 <section id="content">
 		            {% block menu %}
-                    <nav>
+                    <nav >
                     <ul>
-                        <li><a href="#">Noticias</a></li>
-                        <li><a href="#">Usuarios</a></li>
-                        <li><a href="#">Categorias</a></li>
-                        <lid><a href="#">Administradores</a></li>
+                       <a href="#"><li  class="curved">Noticias</li></a>
+                       <a href="#"><li  class="curved">Usuarios</li></a>
+                       <a href="#"><li  class="curved">Categorias</li></a>
+                       <a href="{{ path('listAdmin') }}"><li  class="curved">Administradores</li></a>
                     </ul>
                     </nav>
                     {% endblock %}

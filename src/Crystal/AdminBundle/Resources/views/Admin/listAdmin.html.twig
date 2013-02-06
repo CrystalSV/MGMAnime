@@ -1,0 +1,15 @@
+{% extends 'CrystalAdminBundle:Admin:admin.html.twig' %}
+{% block layout %}
+<table cellpadding="0" celspacing="0"  border="1" align="center">
+        <tr >
+            <td><b>...Lista de administardores...</b></td>
+            <td colspan="2" align="center"><a href="{{ path('addAccess') }}">Agregar<a/></td>
+        </tr>
+      
+        {% for access in access  %}
+            <tr>
+                <td><strong>{{access.id}}<strong/></td>
+            </tr>
+        {% endfor %}
+
+{% endblock %}

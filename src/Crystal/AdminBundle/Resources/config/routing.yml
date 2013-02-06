@@ -2,6 +2,10 @@ addAccess:
     pattern:   /admin/addAccess
     defaults:  { _controller: CrystalAdminBundle:access:add }
 
+listAdmin:
+    pattern:   /admin/listAdmin
+    defaults:  { _controller: CrystalAdminBundle:access:list }
+
 listNews:
     pattern:   /admin/listNews
     defaults:  { _controller: CrystalAdminBundle:news:list }
