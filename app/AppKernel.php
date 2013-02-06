@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new JMS\SecurityExtraBundle\JMSSecurityExtraBundle(),
             new Crystal\BaseBundle\CrystalBaseBundle(),
             new Crystal\NewsBundle\CrystalNewsBundle(),
+            new Crystal\AdminBundle\CrystalAdminBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
