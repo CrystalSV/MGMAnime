@@ -11,8 +11,12 @@
 
 {% block news %}
 	<section id="news">
+		<div style="display: inline-block;">
+			<img src="{{ asset('bundles/crystalnews/images/advise-chibi.png') }}" width="100" height="142" />
+		</div>
+		<h3 style="display: inline-block;vertical-align: top;">Todos los campos son obligatorios</h3>
 		<form method="post">
-			<article id="table">
+			<article id="table">				
 				<div class="row">
 					<div>Usuario:</div><div><input type="text" name="txtUserName" placeholder="Kirito" class="texts" required="true" /></div>
 				</div>
