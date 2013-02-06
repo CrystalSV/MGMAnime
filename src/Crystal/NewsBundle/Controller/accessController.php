@@ -36,6 +36,13 @@ class accessController extends Controller
 			return $this->render('CrystalNewsBundle:Users:addAccess.html.twig', array('users' => $users));
 		}
 	}
+
+	public function loginAction()
+	{
+
+	}
+     
+    
 }
 
 ?>

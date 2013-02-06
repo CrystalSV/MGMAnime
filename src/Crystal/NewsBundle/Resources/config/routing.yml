@@ -74,3 +74,7 @@ deleteMultimedia:
 adminControlPanel:
     pattern: /admin
     defaults: { _controller: CrystalNewsBundle:adminViews:index }
+
+login:
+    pattern: /login/
+    defaults: { _controller: CrystalrutasBundle:access:login }
