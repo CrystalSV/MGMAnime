@@ -1,6 +1,6 @@
 <?php
 
-namespace Crystal\CrystalAdminBundle\Controller;
+namespace Crystal\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 

@@ -1,9 +1,11 @@
 <?php
-namespace Crystal\CrystalAdminBundle\Controller;
+namespace Crystal\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\ctrAccess;
 use Crystal\BaseBundle\Entity\catUsers;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface;
 
 class accessController extends Controller
 {
@@ -33,46 +35,36 @@ class accessController extends Controller
 		else
 		{
 			$users = $em->getRepository('CrystalBaseBundle:catUsers')->findAll();
-			return $this->render('CrystalCrystalAdminBundle:Users:addAccess.html.twig', array('users' => $users));
+			return $this->render('CrystalAdminBundle:Users:addAccess.html.twig', array('users' => $users));
 		}
 	}
 
 	public function loginAction()
 	{
-	  $Session = new Session();      
+	  $Session = new Session();
       $request = $this->getRequest();
 
       $em = $this->getDoctrine()->getEntityManager();
       if($request->getMethod() == 'POST')
       {
       	$_POST = $request->request;
-        $dql = "SELECT a FROM CrystalBaseBundle:ctrAcceso a where a.user=:user and a.password =:password";
-      }
-	}
-
-	 $Session = new Session();      
-      $request = $this->getRequest();
-
-      $em = $this->getDoctrine()->getEntityManager();
-      if($request->getMethod() == 'POST')
-      {
-        $_POST = $request->request;
-        $dql = "SELECT a FROM CrystalplanillaBundle:ctrAcceso a where a.user=:user and a.password =:password";
-        $query = $em->createQuery($dql);
+        $dql = "SELECT a FROM CrystalBaseBundle:ctrAccess a where a.user=:user and a.password =:password";
+      	$query = $em->createQuery($dql);
         $query->setParameter('user', $_POST->get('txtUser'));
         $query->setParameter('password', $_POST->get('txtPass'));
         $usuario = $query->getResult();
         $Session->start();
         $Session->set('id', $usuario[0]->getId());
-        return $this->render('CrystalrutasBundle:Default:index.html.twig', array('session' => $Session->get('id')));
+        return $this->render('CrystalAdminBundle:Admin:admin.html.twig', array('session' => $Session->get('id')));
       }
       else
       {
         $Session->remove('id');
-        return $this->render('CrystalrutasBundle:Default:login.html.twig', array('' => ''));
+        return $this->render('CrystalAdminBundle:Admin:admin.html.twig', array('' => ''));
       }      
-     
-    
+      
+	}
+
 }
 
 ?>

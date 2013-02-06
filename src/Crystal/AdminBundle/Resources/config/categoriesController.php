@@ -2,21 +2,21 @@
 namespace Crystal\AdminBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Crystal\BaseBundle\Entity\ctrMultimedia;
+use Crystal\BaseBundle\Entity\catCategories;
 
-class multimediaController extends Controller
+class categoriesController extends Controller
 {
 	public function listAction()
 	{
-		$multimedia = new ctrMultimedia();
+		$category = new catCategories();
 	   	$em = $this->getDoctrine()->getEntityManager();
-		$multimedia = $em->getRepository('CrystalBaseBundle:ctrMultimedia')->findAll();
-		return $this->render('CrystalAdminBundle:Multimedia:listMultimedia.html.twig', array('multimedia' => $multimedia));
+		$category = $em->getRepository('CrystalBaseBundle:catCategories')->findAll();
+		return $this->render('CrystalAdminBundle:Categories:listCategories.html.twig', array('category' => $category));
 	}
 
 	public function addAction()
 	{
-		$multimedia = new ctrMultimedia();
+		$category = new catCategories();
 
 		$em = $this->getDoctrine()->getEntityManager();
 		$request = $this->getRequest();
@@ -26,20 +26,19 @@ class multimediaController extends Controller
 
 			$_POST = $request->request;
 
-			$multimedia->setpath($_POST->get('txtLink'));
-			$multimedia->settype($_POST->get('txtType'));
+			$category->setName($_POST->get('txtName'));
 			
-			$em->persist($multimedia);
+			$em->persist($category);
 			$em->flush();
 				
-			return $this->redirect($this->generateURL('listMultimedia'));
+			return $this->redirect($this->generateURL('listCategories'));
 
 
 		}
 		else
 		{
-			return $this->render('CrystalAdminBundle:Multimedia:addMultimedia.html.twig', array('multimedia' => $multimedia));
-		} 
+			return $this->render('CrystalAdminBundle:Categories:addCategories.html.twig', array('category' => $category));
+		}
 	}
 
 	public function updateAction($id)
@@ -62,7 +61,7 @@ class multimediaController extends Controller
 			}
 			else
 			{
-				return $this->render('CrystalAdminBundle:categories:updateCategories.html.twig', array('category' => $category));
+				return $this->render('CrystalAdminBundle:Categories:updateCategories.html.twig', array('category' => $category));
 			}
 
 	}
@@ -70,12 +69,12 @@ class multimediaController extends Controller
 	public function deleteAction($id)
 		{
 			$em = $this->getDoctrine()->getEntitymanager();
-			$multimedia = $em->getRepository('CrystalBaseBundle:ctrMultimedia')->find($id);
+			$category = $em->getRepository('CrystalBaseBundle:catCategories')->find($id);
 		
 	
-			$em->remove($multimedia);
+			$em->remove($category);
 			$em->flush();
-			return $this->redirect($this->generateURL('listMultimedia'));
+			return $this->redirect($this->generateURL('listCategories'));
 		}
 
 }

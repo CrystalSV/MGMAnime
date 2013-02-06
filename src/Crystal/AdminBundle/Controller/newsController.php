@@ -1,5 +1,5 @@
 <?php 
-namespace Crystal\CrystalAdminBundle\Controller;
+namespace Crystal\AdminBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\catNews;
 use Crystal\BaseBundle\Entity\catCategories;
@@ -7,8 +7,7 @@ use Crystal\BaseBundle\Entity\catUsers;
 
 class newsController extends Controller
 {
-
-	public function listAction()
+		public function listAction()
 	{
 		$new = new catNews();
 	   	$em = $this->getDoctrine()->getEntityManager();
@@ -47,7 +46,7 @@ class newsController extends Controller
 		}
 		else
 		{
-			return $this->render('CrystalCrystalAdminBundle:News:createNews.html.twig', array('news' => $news, 'category' => $category, 'user' => $user));
+			return $this->render('CrystalAdminBundle:News:createNews.html.twig', array('news' => $news, 'category' => $category, 'user' => $user));
 		}
 	}
 	public function updateAction($id)
@@ -92,3 +91,5 @@ class newsController extends Controller
 			return $this->redirect($this->generateURL('listNews'));
 		}
 }
+
+?>

@@ -1,11 +1,3 @@
-updateUsers:
-    pattern:   /admin/updateUsers/{id}
-    defaults:  { _controller: CrystalAdminBundle:users:update }
-
-deleteUsers:
-    pattern:   /admin/deleteUsers/{id}
-    defaults:  { _controller: CrystalAdminBundle:users:delete }
-
 addAccess:
     pattern:   /admin/addAccess
     defaults:  { _controller: CrystalAdminBundle:access:add }
@@ -65,4 +57,4 @@ adminControlPanel:
 
 login:
     pattern: /login/
-    defaults: { _controller: CrystalAdminBundle:acceso:login }
+    defaults: { _controller: CrystalAdminBundle:access:login }
