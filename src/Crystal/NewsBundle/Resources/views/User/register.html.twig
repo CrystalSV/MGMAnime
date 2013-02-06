@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block breaking %}
+	<section id="breaking">
+		<div id="title">
+			<img src="{{ asset('bundles/crystalnews/images/title.png') }}" width="300" height="124" />
+			<h2>Registrate</h2>
+		</div>
+	</section>
+{% endblock %}
+
+{% block news %}
+	<section id="news">
+		<form method="post">
+			<article id="table">
+				<div class="row">
+					<div>Usuario:</div><div><input type="text" name="txtUserName" placeholder="Kirito" class="texts" required="true" /></div>
+				</div>
+				<div class="row">
+					<div>E-mail:</div><div><input type="email" name="txtMail" placeholder="ejemplo@gmail.com" class="texts" required="true" /></div>
+				</div>
+				<div class="row">
+					<div>Contrase&ntilde;a:</div><div><input type="password" name="txtPass" placeholder="******" class="texts" required="true" /></div>
+				</div>
+				<div class="row">
+					<div>Confirme contrase&ntilde;a:</div><div><input type="password" name="txtPass2" placeholder="******" class="texts" required="true" /></div>
+				</div>
+				<div class="row">
+					<div>Fecha de nacimiento:</div><div><input type="date" name="txtBirthDay" placeholder="01/07/2007" class="texts"  required="true" /></div>
+				</div>
+				<div class="row">
+					<div>Edad:</div><div><input type="number" min="13" max="100" name="txtAge" class="texts" placeholder="13" required="true" /></div>
+				</div>
+				<div align="center" style="margin-top: 30px;">
+					<input type="submit" value="Registrate" class="button"/>
+				</div>
+			</article>
+			<div style="display: inline-block;">
+				<img src="{{ asset('bundles/crystalnews/images/register-chibi.png')}}" width="200" height="229" />
+			</div>
+		</form>		
+	</section>
+{% endblock %}

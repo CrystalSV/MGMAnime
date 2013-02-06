@@ -31,12 +31,9 @@ class UsersController extends Controller
             $user->setUserName($_POST->get('txtUserName'));
             $user->setMail($_POST->get('txtMail'));
             $user->setPass($_POST->get('txtPass'));
-            $user->setGender($_POST->get('txtGender'));
+            $user->setGender('N');
+            $user->setBirthday($_POST->get('txtBirthDay'));
             $user->setAge($_POST->get('txtAge'));
-            $user->setOcupations($_POST->get('txtOcupations'));
-            $user->setHobbies($_POST->get('txtHobbies'));
-            $user->setBirthday($_POST->get('txtBirthday'));
-            $user->setWebsite($_POST->get('txtWebsite'));
             
             $em->persist($user);
             $em->flush();
@@ -47,7 +44,7 @@ class UsersController extends Controller
         }
         else
         {
-            return $this->render('CrystalNewsBundle:Default:register.html.twig', array('user' => $user));
+            return $this->render('CrystalNewsBundle:User:register.html.twig', array('user' => $user));
         }
     }
     public function updateAction($id)
