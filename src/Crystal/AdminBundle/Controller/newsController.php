@@ -13,7 +13,7 @@ class newsController extends Controller
 	   	$em = $this->getDoctrine()->getEntityManager();
 		$new = $em->getRepository('CrystalBaseBundle:catNews')->findAll();
 		$category = $em->getRepository('CrystalBaseBundle:catCategories')->findAll();
-		return $this->render('CrystalCrystalAdminBundle:News:listNews.html.twig', array('new' => $new, 'category' => $category));
+		return $this->render('CrystalAdminBundle:News:listNews.html.twig', array('new' => $new, 'category' => $category));
 	}
 
 	public function addAction()
@@ -76,7 +76,7 @@ class newsController extends Controller
 			}
 			else
 			{
-				return $this->render('CrystalCrystalAdminBundle:News:updateNews.html.twig', array('news' => $news, 'category' => $category));
+				return $this->render('CrystalAdminBundle:News:updateNews.html.twig', array('news' => $news, 'category' => $category));
 			}
 
 	}

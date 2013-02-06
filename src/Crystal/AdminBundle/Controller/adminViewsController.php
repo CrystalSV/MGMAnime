@@ -8,7 +8,7 @@ class adminViewsController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('CrystalCrystalAdminBundle:Admin:login.html.twig');
+        return $this->render('CrystalAdminBundle:Admin:login.html.twig');
     }
 }
 

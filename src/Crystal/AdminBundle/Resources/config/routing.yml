@@ -52,9 +52,11 @@ deleteMultimedia:
     defaults:  { _controller: CrystalAdminBundle:multimedia:delete }
 
 adminControlPanel:
-    pattern: /admin
+    pattern: /admin/adminViews
     defaults: { _controller: CrystalAdminBundle:adminViews:index }
 
 login:
-    pattern: /login/
+    pattern: /admin
     defaults: { _controller: CrystalAdminBundle:access:login }
+
+
