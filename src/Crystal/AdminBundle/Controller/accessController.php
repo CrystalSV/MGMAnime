@@ -39,8 +39,38 @@ class accessController extends Controller
 
 	public function loginAction()
 	{
+	  $Session = new Session();      
+      $request = $this->getRequest();
 
+      $em = $this->getDoctrine()->getEntityManager();
+      if($request->getMethod() == 'POST')
+      {
+      	$_POST = $request->request;
+        $dql = "SELECT a FROM CrystalBaseBundle:ctrAcceso a where a.user=:user and a.password =:password";
+      }
 	}
+
+	 $Session = new Session();      
+      $request = $this->getRequest();
+
+      $em = $this->getDoctrine()->getEntityManager();
+      if($request->getMethod() == 'POST')
+      {
+        $_POST = $request->request;
+        $dql = "SELECT a FROM CrystalplanillaBundle:ctrAcceso a where a.user=:user and a.password =:password";
+        $query = $em->createQuery($dql);
+        $query->setParameter('user', $_POST->get('txtUser'));
+        $query->setParameter('password', $_POST->get('txtPass'));
+        $usuario = $query->getResult();
+        $Session->start();
+        $Session->set('id', $usuario[0]->getId());
+        return $this->render('CrystalrutasBundle:Default:index.html.twig', array('session' => $Session->get('id')));
+      }
+      else
+      {
+        $Session->remove('id');
+        return $this->render('CrystalrutasBundle:Default:login.html.twig', array('' => ''));
+      }      
      
     
 }

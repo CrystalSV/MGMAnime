@@ -1,6 +1,5 @@
-<?php
+<?php 
 namespace Crystal\CrystalAdminBundle\Controller;
-
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\catNews;
 use Crystal\BaseBundle\Entity\catCategories;
@@ -9,7 +8,7 @@ use Crystal\BaseBundle\Entity\catUsers;
 class newsController extends Controller
 {
 
-    public function listAction()
+	public function listAction()
 	{
 		$new = new catNews();
 	   	$em = $this->getDoctrine()->getEntityManager();
@@ -92,7 +91,4 @@ class newsController extends Controller
 			$em->flush();
 			return $this->redirect($this->generateURL('listNews'));
 		}
-
 }
-
-?>

@@ -63,4 +63,6 @@ adminControlPanel:
     pattern: /admin
     defaults: { _controller: CrystalAdminBundle:adminViews:index }
 
-
+login:
+    pattern: /login/
+    defaults: { _controller: CrystalAdminBundle:acceso:login }
