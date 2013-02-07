@@ -9,3 +9,7 @@ userlist:
 register:
     pattern:   /registrate
     defaults:  { _controller: CrystalNewsBundle:Users:register }
+
+validateUser:
+    pattern:   /validateUser
+    defaults:  { _controller: CrystalNewsBundle:Users:validateUser }

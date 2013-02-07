@@ -16,6 +16,30 @@ class UsersController extends Controller
         return $this->render('CrystalNewsBundle:Users:listUsers.html.twig', array('user' => $user));
     }
 
+    public function validateUserAction()
+    {
+        $request = $this->getRequest();
+        $exists = false;
+
+        if ($request->isXmlHttpRequest()) 
+        {
+            $_POST = $request->request;
+            $em = $this->getDoctrine()->getEntityManager();
+            $User = $em->getRepository('CrystalBaseBundle:catUsers')->findByuserName($_POST->get('name'));
+            
+            if(count($User) > 0)
+            {
+                $exists = true;
+            }
+            else
+            {
+                $exists = flase;
+            }
+        }
+
+        return $this->render('CrystalNewsBundle:User:validateUser.html.twig', array('exists' => $exists));
+    }
+
     public function registerAction()
     {
         $user = new catUsers();

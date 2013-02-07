@@ -30,7 +30,7 @@ class catUsers
     /**
      * @var string
      *
-     * @ORM\Column(name="userName", type="string", length=50)
+     * @ORM\Column(name="userName", type="string", length=50 )
      */
     private $userName;
 

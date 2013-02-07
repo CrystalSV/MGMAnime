@@ -28,20 +28,27 @@
 	</script>
 
 	<script>
-		function confirmPassword(control, control2)
+		function roles(name)
 		{
-			if(control.value != document.getElementById(control2).value)
-			{
-				control.className = 'textError';
-				return false;
-			}
-			else
-			{
-				control.className = "texts";
-				return true;
-			}
-		}
+	        $("div#Roles").empty();
+	        $.ajax
+	        (
+		        {
+	                type: 'post',
+	                cache: "true",
+	                dataType: 'html',
+	                data: { "name" : name },
+	                url: '{{ path('validateUser') }}',
+	                success: function(data)
+	                {
+						$("div#Roles").append(data); 
+            	    }                        
+	            }
+            )
+        }          
+
 	</script>
+
 {% endblock %}
 
 {% block breaking %}
@@ -62,7 +69,10 @@
 		<form method="post" id="register" onSubmit="return confirmPassword(this.txtPass2, 'password')" >
 			<article id="table">				
 				<div class="row">
-					<div>Usuario:</div><div><input type="text" name="txtUserName" placeholder="Kirito" class="texts" required="true" /></div>
+					<div>Usuario:</div><div><input id="name" type="text" name="txtUserName" placeholder="Kirito" class="texts" required="true" onchange="roles(this.value);" /></div>
+				</div>
+				<div id="Roles">
+
 				</div>
 				<div class="row">
 					<div>E-mail:</div><div><input type="email" name="txtMail" placeholder="ejemplo@gmail.com" class="texts" required="true" /></div>
