@@ -33,7 +33,7 @@ class UsersController extends Controller
             }
             else
             {
-                $exists = flase;
+                $exists = false;
             }
         }
 

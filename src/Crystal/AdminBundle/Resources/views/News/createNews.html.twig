@@ -2,34 +2,29 @@
 	{% block layout %}	
 	<script language="JavaScript">
 
-        function cambiaEstado(iden)
-        {
-        	var select = document.getElementById('categoria');
+		function cambiaEstado(select)
+		{
+			var divAudio = document.getElementById('audioFiles');
+			if(select.value == 2)
+				divAudio.style.display = 'block';
+			else
+				divAudio.style.display = 'none';
+			
+		}
 
-        	
-	          	var elhtml = document.getElementById(iden);
-	         	if (elhtml.style.display == 'none')
-	      	 	elhtml.style.display = 'block';
-	  			else
-	      		elhtml.style.display = 'none';
-      		
-  		}
-
-</script> 
-	<script>
-	function change()
-	{
-		var input = document.getElementById('input');
-		var opt = document.getElementById(input.value);
-		opt.getElementsByTagName('input')[0].name = "txtId";
-	}
+		function change()
+		{
+			var input = document.getElementById('input');
+			var opt = document.getElementById(input.value);
+			opt.getElementsByTagName('input')[0].name = "txtId";
+		}
 	</script>
 	<form method="post"  enctype="multipart/form-data" name="formu">
 	<table cellpadding="0" cellspacing="0" >
 	<tr>
 			<td>Categoria:</td>
 			<td>
-				<select name="categoria" id="categoria">
+				<select name="categoria" id="categoria" onchange="cambiaEstado(this);">
 				{% for categories in categories %}
 					<option value="{{ categories.id }}">
 						{{ categories.Name }}
@@ -56,45 +51,12 @@
 		</tr>
 		
 	</table>
-
-	<select name="categoria" id="categoria"  onClick="javascript:changeDisplay('kk')">
-			
-					<option value="3">
-						algo
-					</option>
-					<option value="2">
-						nada
-					</option>
-	
-		</select>
-
-       
-  <script type="text/javascript">
   
-
-  
-	    function changeDisplay (id) {
-
-	     var select=document.getElementById("categoria");
-	     if(select.value == 2)
-   		{
-	      e=document.getElementById(id);
-	      if (e.style.display == 'none' || e.style.display == "") {
-	        e.style.display = 'block';
-	      } else {
-	        e.style.display = 'none';
-	      }
-	    }
-	    }
-    
-  </script>
-
-  
-  <div id="kk" style="display:none">
-   <input type="file" name="mp3"/></br>
-   <input type="file" name="ogg"/>
-  </div>
-	</form>
+	<div id="audioFiles" style="display:none">
+	  <input type="file" name="mp3"/></br>
+	  <input type="file" name="ogg"/>
+	</div>
+</form>
 {% endblock %}
 
 
