@@ -11,32 +11,41 @@ class accessController extends Controller
 {
 	public function addAction()
 	{
-		$access = new ctrAccess();
+		$Session = new Session();
+	    $id = $Session->get('id');
+	    if(isset($id))
+	    {
+			$access = new ctrAccess();
 
-		$em = $this->getDoctrine()->getEntityManager();
-		$request = $this->getRequest();
+			$em = $this->getDoctrine()->getEntityManager();
+			$request = $this->getRequest();
 
-		if ($request->getMethod() == 'POST') 
-		{
+			if ($request->getMethod() == 'POST') 
+			{
 
-			$_POST = $request->request;
+				$_POST = $request->request;
 
-			$user = $em->getRepository('CrystalBaseBundle:catUsers')->find($_POST->get('txtId'));
-			$access->setidUser($user);
-		
+				$user = $em->getRepository('CrystalBaseBundle:catUsers')->find($_POST->get('txtId'));
+				$access->setidUser($user);
 			
-			$em->persist($access);
-			$em->flush();
 				
-			return $this->redirect($this->generateURL('addAccess'));
+				$em->persist($access);
+				$em->flush();
+					
+				return $this->redirect($this->generateURL('addAccess'));
 
 
+			}
+			else
+			{
+				$users = $em->getRepository('CrystalBaseBundle:catUsers')->findAll();
+				return $this->render('CrystalAdminBundle:Admin:addAdmin.html.twig', array('users' => $users));
+			}
 		}
 		else
-		{
-			$users = $em->getRepository('CrystalBaseBundle:catUsers')->findAll();
-			return $this->render('CrystalAdminBundle:Admin:addAdmin.html.twig', array('users' => $users));
-		}
+        {
+            return $this->redirect($this->generateURL('login'));   
+        }
 	}
 
 	public function loginAction()
@@ -75,12 +84,12 @@ class accessController extends Controller
 			   		}
 	        }
 	      
-      }
-      else
-      {
-        $Session->remove('id');
-        return $this->render('CrystalAdminBundle:Admin:login.html.twig', array('' => ''));
-      }      
+	      }
+	      else
+	      {
+	        $Session->remove('id');
+	        return $this->render('CrystalAdminBundle:Admin:login.html.twig', array('' => ''));
+	      }      
       
 	}
 

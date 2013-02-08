@@ -4,6 +4,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Crystal\BaseBundle\Entity\catNews;
 use Crystal\BaseBundle\Entity\catCategories;
 use Crystal\BaseBundle\Entity\catUsers;
+use Crystal\BaseBundle\Entity\ctrMultimedia;
+use Crystal\AdminBundle\Resources\classes\image;
+use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface;
 
 class newsController extends Controller
 {
@@ -18,36 +22,64 @@ class newsController extends Controller
 
 	public function addAction()
 	{
-		$news = new catNews();
-		$request = $this->getRequest();
-		$category = new catCategories();
-		$user = new catUsers();
-		$em = $this->getDoctrine()->getEntityManager();
+		$Session = new Session();
+	    $id = $Session->get('id');
+	    if(isset($id))
+	    {
+			$news = new catNews();
+			$category = new catCategories();
+			$user = new catUsers();
+			$imagen = new Image();
+			$multi = new ctrMultimedia();
+			$request = $this->getRequest();
+			$_FILES = $request->files;
+			$em = $this->getDoctrine()->getEntityManager();
 
-		if ($request->getMethod() == 'POST') 
-		{
+			if ($request->getMethod() == 'POST') 
+			{
 
-			$_POST = $request->request;
-			$category = $em->getRepository('CrystalBaseBundle:catCategories')->find($_POST->get('txtCategory'));
+				$_POST = $request->request;
+				$categories = $em->getRepository('CrystalBaseBundle:catCategories')->find($_POST->get('categoria'));
 
-			$news->setContent($_POST->get('txtContent'));
-			$news->setDate($_POST->get('txtDate'));
-			$news->setKeywords($_POST->get('txtKeywords'));
-			$news->setidCategory($category);
-			$news->setidUser($user);
-			
-			
-			$em->persist($news);
-			$em->flush();
+				$news->setContent($_POST->get('txtContent'));
+				$news->setDate($_POST->get('txtDate'));
+				$news->setKeywords($_POST->get('txtKeywords'));
+				$news->setidCategory($categories);
+
+				$user = $em->getRepository('CrystalBaseBundle:catUsers')->find($id);
+				$news->setidUser($user);
 				
-			return $this->redirect($this->generateURL('listNews'));
+				
+				$em->persist($news);
+				$em->flush();
+
+			    $imagen->img = $_FILES->get('imagen');
+	            if($imagen->checkErrors() == 'NoError')
+	             {
+
+	                 $multi->setPath($imagen->upload());
+	                 $multi->setType('imagen');
+	                 $multi->setidNew($news);
+
+	                 $em->persist($multi);
+					 $em->flush();
+
+	             }
+					
+				return $this->redirect($this->generateURL('listNews'));
 
 
+			}
+			else
+			{
+				$categories = $em->getRepository('CrystalBaseBundle:catCategories')->findAll();
+				return $this->render('CrystalAdminBundle:News:createNews.html.twig', array('news' => $news, 'categories' => $categories, 'user' => $user));
+			}
 		}
 		else
-		{
-			return $this->render('CrystalAdminBundle:News:createNews.html.twig', array('news' => $news, 'category' => $category, 'user' => $user));
-		}
+        {
+            return $this->redirect($this->generateURL('login'));   
+        }
 	}
 	public function updateAction($id)
 	{

@@ -1,5 +1,5 @@
 <?php
-	namespace Crystal\rutasBundle\Resources\classes;
+	namespace Crystal\AdminBundle\Resources\classes;
 
 	class image
 	{
