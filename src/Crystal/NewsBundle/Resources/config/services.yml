@@ -2,6 +2,10 @@ parameters:
 #    crystal_news.example.class: Crystal\NewsBundle\Example
 
 services:
+    twig.extension.intl:
+        class: Twig_Extensions_Extension_Intl
+        tags:
+                - { name: twig.extension }
 #    crystal_news.example:
 #        class: %crystal_news.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]

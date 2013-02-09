@@ -1,6 +1,8 @@
 Index:
-    pattern:  /
-    defaults: { _controller: CrystalNewsBundle:Views:index }
+    pattern:  /{page}
+    defaults: { _controller: CrystalNewsBundle:Views:index, page: 1 }
+    requirements:
+        page:  \d+
 
 userlist:
     pattern:   /lista
