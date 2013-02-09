@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new Crystal\BaseBundle\CrystalBaseBundle(),
             new Crystal\NewsBundle\CrystalNewsBundle(),
             new Crystal\AdminBundle\CrystalAdminBundle(),
+            new MakerLabs\PagerBundle\MakerLabsPagerBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

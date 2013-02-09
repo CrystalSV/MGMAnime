@@ -31,7 +31,8 @@ class catNews
      *
      * @ORM\Column(name="Title", type="string", length=90)
      */
-
+    private $Title;
+    
     /**
      * @ORM\ManyToOne(targetEntity="catCategories", inversedBy="catNews")
      * @ORM\JoinColumn(name="idCategory", referencedColumnName="id")
@@ -78,11 +79,7 @@ class catNews
     public function getidMultimedia()
     {
         return $this->idMultimedia;
-    }
-
-
-
-    private $Title;
+    }    
 
     /**
      * @var string

@@ -33,7 +33,7 @@ class UsersController extends Controller
             }
             else
             {
-                $exists = flase;
+                $exists = false;
             }
         }
 
@@ -68,7 +68,7 @@ class UsersController extends Controller
         }
         else
         {
-            return $this->render('CrystalNewsBundle:User:register.html.twig', array('user' => $user));
+            return $this->render('CrystalNewsBundle:User:register.html.twig');
         }
     }
     public function updateAction($id)

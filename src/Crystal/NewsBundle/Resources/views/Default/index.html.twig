@@ -9,6 +9,13 @@
 {% endblock %}
 {% block javascripts %}
 	{{ parent() }}
+
+	{% javascripts 
+        'bundles/crystalnews/js/jquery.flexslider.js'
+    %}
+        <script src="{{ asset_url }}" ></script>
+    {% endjavascripts %}
+
 	<script type="text/javascript">
 		$(window).load(function(){
 		  $('.flexslider').flexslider({
@@ -18,8 +25,7 @@
 			}
 		  });
 		});
-	</script>
-	<script>
+
 		(function(d, s, id) {
 				var js, fjs = d.getElementsByTagName(s)[0];
 				if (d.getElementById(id)) return;
@@ -44,10 +50,8 @@
 				<ul class="slides">
 					{% for BkNew in BkNews %}
 						<li>
-							<img src="{{ asset(BkNews.imagePath) }}" width="700" height="350" />						
-					{% endfor %}
-					{% for New in News %}
-							<div><span>{{ New.Title }}</span></div>
+							<img src="{{ asset('bundles/crystalnews/images/' ~ BkNew.imagePath) }}" width="700" height="350" />
+							<div><span>{{ BkNew.idNew.Title }}</span></div>
 						</li>
 					{% endfor %}
 				</ul>
@@ -61,80 +65,39 @@
 
 {% block news %}
 	<section id="news">
-		<article>
-			<div>
-				<div class="calendar">
-					<div class="month">Dic</div>
-					<div class="Day">20</div>
-					<div class="Year">2012</div>
+		{% set lines = 
+			["",
+				""]
+		%}
+		{% for New in pager.getResults %}
+			<article>
+				<div>
+					<div class="calendar">
+						<div class="month">{{ New.date | date("M") | trans() }}</div>
+						<div class="day">{{ New.date | date("d") }}</div>
+						<div class="year">{{ New.date | date("Y") }}</div>
+					</div>
 				</div>
-			</div>
-			<div class="newsTitle">
-				<img src="pics/news-1.jpg" width="700" height="200" />
-				<div><span>20th Century Boys una joya de Naoki Urasawa<br />Autor: Sawamura Kenji</span></div>
-			</div>
-			<div class="newsDescription">
-				20th Century Boys es un manga de ciencia ficción y misterio, guionizado y dibujado por Naoki Urasawa, autor de otras obras como Monster o Yawara!.
-				<br /><br />
-				La serie comenzó a publicarse en 1999 en la revista Big Comic Spirits de la editorial Shōgakukan, y que termino con 22 tomos recopilatorios en Japón y en el que sus últimos capítulos cambian de título por el de 21st Century Boys...
-				<a href="#">
-					Leer M&aacute;s
-				</a>
-			</div>
-			<div class="newsInfo"></div>
-		</article>
-		<div class="line-2">
-			<img src="{{ asset('bundles/crystalnews/images/line-2.png') }}" width="700" height="72" />
-		</div>
-		<article>
-			<div>
-				<div class="calendar">
-					<div class="month">Dic</div>
-					<div class="Day">22</div>
-					<div class="Year">2012</div>
+				<div class="newsTitle">
+					<img src="	pics/news-1.jpg" width="700" height="200" />
+					<div><span>{{ New.Title }}<br />Autor: {{ New.idUser.UserName }}</span></div>
 				</div>
-			</div>
-			<div class="newsTitle">
-				<img src="http://deluscar.files.wordpress.com/2012/12/chuunibyou-demo-koi-ga-shitai-01-1.jpg?w=774&h=435" width="774" height="435"/>
-				<div><span>Chuunibyou demo koi ga shitai ! Llega a su fin <br/>Autor: -Noah-</span></div>
-			</div>
-			<div class="newsDescription">
-				Una comedia romántica protagonizada por Yuuta Togashi y Rikka Takanashi. Yuuta padeció de “Chuunibyou”, o “enfermedad de 8vo grado”, una desorden psicológico donde el paciente cree que tiene super poderes y pretende salvar el mundo.
-
-				<br /><br />
-
-				Durante su último año en la escuela media, este trata de concentrarse solo en sus estudios y en tener una vida normal, encontrando así una cura. Ahora, en su primer año de preparatoria, se encuentra a sí mismo estableciendo un contrato con Rikka, una paciente infectado de “Chuunibyo”. ¿Cómo el paciente curado y el paciente infectado coexistirán?...
-				<a href="#">
-					Leer M&aacute;s
-				</a>
-			</div>
-			<div class="newsInfo"></div>
-		</article>
-		<div class="line-2">
-			<img src="{{ asset('bundles/crystalnews/images/line-3.png') }}" width="700" height="106" />
-		</div>
-		<article>
-			<div>
-				<div class="calendar">
-					<div class="month">Ene</div>
-					<div class="Day">04</div>
-					<div class="Year">2013</div>
+				<div class="newsDescription">
+					{{ New.content }}
+					<a href="#">
+						Leer M&aacute;s
+					</a>
 				</div>
+				<div class="newsInfo"></div>
+			</article>
+			<div>
+				{% if loop.index is divisibleby(2) %}
+					<img src="{{ asset('bundles/crystalnews/images/line-3.png') }}" width="700" height="106" />			
+				{% else %}
+					<img src="{{ asset('bundles/crystalnews/images/line-2.png') }}" width="700" height="72" />
+				{% endif %}
 			</div>
-			<div class="newsTitle">
-				<img src="pics/news-2.jpg" width="900" height="649"/>
-				<div><span>¿Tonari no kaibutsu kun termina? <br />Autor: Thenluna</span></div>
-			</div>
-			<div class="newsDescription">
-				Mizutani Shizuku es del tipo de personas que solo se preocupa por sus calificaciones. Pero, cuando accidentalmente es asignada para llevarle las notas de las clases a Yoshida Haru, él se convencerá a si mismo de que son amigos.
-				<br /><br />
-				Haru resulta ser un chico con una personalidad bien inocente, pero ¿Quién pensaría que Haru se le confesara a Shizuku? El romance entre una chica fría y un chico problemático contado desde una nueva perspectiva...
-				<a href="#">
-					Leer M&aacute;s
-				</a>
-			</div>
-			<div class="newsInfo"></div>
-		</article>
+		{% endfor %}		
 	</section>
 {% endblock %}
 

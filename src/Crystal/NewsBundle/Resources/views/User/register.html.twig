@@ -25,12 +25,27 @@
 			$("#password").valid();
 			
 		});
-	</script>
 
-	<script>
+		function confirmPassword(control1, control2)
+		{
+			var control = document.getElementById(control2);
+			var ans;
+			if(control1.value != control.value)
+			{
+				control1.className = 'textError';
+				ans = false;
+			}
+			else
+			{
+				control1.className = 'texts';
+				ans = true;
+			}
+			return ans;
+		}
+
 		function roles(name)
 		{
-	        $("div#Roles").empty();
+	        $("div#avalName").empty();
 	        $.ajax
 	        (
 		        {
@@ -41,7 +56,7 @@
 	                url: '{{ path('validateUser') }}',
 	                success: function(data)
 	                {
-						$("div#Roles").append(data); 
+						$("div#avalName").append(data); 
             	    }                        
 	            }
             )
@@ -67,13 +82,13 @@
 		</div>
 		<h3 style="display: inline-block;vertical-align: top;">Todos los campos son obligatorios</h3>
 		<form method="post" id="register" onSubmit="return confirmPassword(this.txtPass2, 'password')" >
-			<article id="table">				
-				<div class="row">
-					<div>Usuario:</div><div><input id="name" type="text" name="txtUserName" placeholder="Kirito" class="texts" required="true" onchange="roles(this.value);" /></div>
-				</div>
-				<div id="Roles">
+			<div id="user">
+				<div>Usuario:</div><div><input id="name" type="text" name="txtUserName" placeholder="Kirito" class="texts" required="true" onchange="roles(this.value);" /></div>
+				<div id="avalName" style="text-align: right; width: 40%; font-size: 0.8em;">
 
 				</div>
+			</div>
+			<article id="table">												
 				<div class="row">
 					<div>E-mail:</div><div><input type="email" name="txtMail" placeholder="ejemplo@gmail.com" class="texts" required="true" /></div>
 				</div>
