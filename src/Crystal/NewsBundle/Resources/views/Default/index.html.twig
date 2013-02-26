@@ -17,29 +17,55 @@
     {% endjavascripts %}
 
 	<script type="text/javascript">
-		$(window).load(function(){
-		  $('.flexslider').flexslider({
-			animation: "slide",
-			start: function(slider){
-			  $('body').removeClass('loading');
-			}
-		  });
-		});
+		$(window).on("load", slider);
+		function slider()
+		{
+			objSlider =
+			{
+				animation: "slide",
+				start: noCarga
+			};
+		}
 
-		(function(d, s, id) {
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s); js.id = id;
-				js.src = "http://connect.facebook.net/es_LA/all.js#xfbml=1&appId=317565235017985";
-				fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
+		function noCarga(slider)
+		{
+			$("body").removeClass('loading');
+		}
 	</script>
+	<script src="http://connect.facebook.net/es_LA/all.js#xfbml=1&appId=317565235017985"></script>
+	<script src="http://platform.twitter.com/widgets.js"></script>
 {% endblock %}
 {% block topMenu %}
 	<section id="top-menu">
-        <a href="http://misgustosmianime.tk" target="__blank"><section class="sec-forum"><article class="forum"><div class="title">MGM Anime Foro<div></article></section></a>
-        <section class="sec-library"><article class="library"><div class="title">Biblioteca Anime</div></article></section>
-        <section class="sec-radio"><article class="radio"><div class="title">MGM Anime Radio</div></article></section>
+        <a href="http://mgmanime.com" target="__blank">
+        	<section class="sec-forum">
+        		<figure class="forum">
+    				<figcaption class="title">
+    					MGM Anime
+    					<br />
+    					Foro
+    				</figcaption>
+    			</figure>
+    		</section>
+    	</a>
+        <section class="sec-library">
+    		<figure class="library">
+				<figcaption class="title">
+					Biblioteca
+					<br />
+					MGM Anime
+				</figcaption>
+			</figure>
+		</section>
+        <section class="sec-radio">
+        	<figure class="radio">
+        		<figcaption class="title">
+        			MGM Anime
+        			<br />
+        			Radio
+        		</figcaption>
+        	</figure>
+        </section>
     </section>
 {% endblock %}
 
@@ -65,10 +91,6 @@
 
 {% block news %}
 	<section id="news">
-		{% set lines = 
-			["",
-				""]
-		%}
 		{% for New in pager.getResults %}
 			<article>
 				<div>
@@ -79,7 +101,7 @@
 					</div>
 				</div>
 				<div class="newsTitle">
-					<img src="	pics/news-1.jpg" width="700" height="200" />
+					<img src="">
 					<div><span>{{ New.Title }}<br />Autor: {{ New.idUser.UserName }}</span></div>
 				</div>
 				<div class="newsDescription">
@@ -110,8 +132,6 @@
 	</aside>
 	<aside id="fb-box">						
 		<a class="twitter-timeline" href="https://twitter.com/MGMAnime" data-widget-id="287676963575959552" width="250" height="500">Tweets por @MGMAnime</a>
-		<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
-
 	</aside>
 {% endblock %}
 
