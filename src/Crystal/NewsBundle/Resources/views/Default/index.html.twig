@@ -17,19 +17,14 @@
     {% endjavascripts %}
 
 	<script type="text/javascript">
-		$(window).on("load", slider);
+		$(document).on("ready", slider)
 		function slider()
 		{
-			objSlider =
-			{
-				animation: "slide",
-				start: noCarga
-			};
-		}
-
-		function noCarga(slider)
-		{
-			$("body").removeClass('loading');
+			$(".flexslider").flexslider(
+				{
+					animation: "slide"
+				}
+			);
 		}
 	</script>
 	<script src="http://connect.facebook.net/es_LA/all.js#xfbml=1&appId=317565235017985"></script>
@@ -74,6 +69,14 @@
 		<section class="slider">
 			<div class="flexslider">
 				<ul class="slides">
+					<li>
+						<img src="http://4.bp.blogspot.com/-4vcSXu8baJU/UInXWbpZRSI/AAAAAAAAEuo/fiudHRSr14Q/s1600/Chuunibyou+Demo+Koi+ga+Shitai+-+03+-+Large+End+Card.jpg" width="700" />
+						<div><span>Estrenan Ova's de Chuunibyou!</span></div>
+					</li>
+					<li>
+						<img src="http://c.fakku.net/images/uploads/134442070610.jpeg" width="700" />
+						<div><span>¿Reconoces a estas chicas?</span></div>
+					</li>
 					{% for BkNew in BkNews %}
 						<li>
 							<img src="{{ asset('bundles/crystalnews/images/' ~ BkNew.imagePath) }}" width="700" height="350" />
@@ -112,7 +115,7 @@
 				</div>
 				<div class="newsInfo"></div>
 			</article>
-			<div>
+			<div class="line-2">
 				{% if loop.index is divisibleby(2) %}
 					<img src="{{ asset('bundles/crystalnews/images/line-3.png') }}" width="700" height="106" />			
 				{% else %}
@@ -128,10 +131,9 @@
 		<img src="{{ asset('bundles/crystalnews/images/register.png') }}" width="250" height="96" />
 	</section>
 	<aside id="fb-box">
-		<div class="fb-like-box" data-href="http://www.facebook.com/misgustosmisanimes" data-width="250" data-height="500" data-show-faces="true" data-stream="false" data-header="true"></div>
+		<div class="fb-like-box" data-href="http://www.facebook.com/misgustosmisanimes" data-width="230" data-height="500" data-show-faces="true" data-stream="false" data-header="true"></div>
 	</aside>
 	<aside id="fb-box">						
-		<a class="twitter-timeline" href="https://twitter.com/MGMAnime" data-widget-id="287676963575959552" width="250" height="500">Tweets por @MGMAnime</a>
+		<a class="twitter-timeline" href="https://twitter.com/MGMAnime" data-widget-id="287676963575959552" width="230" height="500">Tweets por @MGMAnime</a>
 	</aside>
 {% endblock %}
-
