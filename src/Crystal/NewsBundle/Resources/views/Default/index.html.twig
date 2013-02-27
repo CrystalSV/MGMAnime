@@ -69,17 +69,9 @@
 		<section class="slider">
 			<div class="flexslider">
 				<ul class="slides">
-					<li>
-						<img src="http://4.bp.blogspot.com/-4vcSXu8baJU/UInXWbpZRSI/AAAAAAAAEuo/fiudHRSr14Q/s1600/Chuunibyou+Demo+Koi+ga+Shitai+-+03+-+Large+End+Card.jpg" width="700" />
-						<div><span>Estrenan Ova's de Chuunibyou!</span></div>
-					</li>
-					<li>
-						<img src="http://c.fakku.net/images/uploads/134442070610.jpeg" width="700" />
-						<div><span>¿Reconoces a estas chicas?</span></div>
-					</li>
 					{% for BkNew in BkNews %}
 						<li>
-							<img src="{{ asset('bundles/crystalnews/images/' ~ BkNew.imagePath) }}" width="700" height="350" />
+							<img src="{{ asset('bundles/crystalnews/pics/' ~ BkNew.imagePath) }}" width="700" height="350" />
 							<div><span>{{ BkNew.idNew.Title }}</span></div>
 						</li>
 					{% endfor %}
@@ -104,7 +96,7 @@
 					</div>
 				</div>
 				<div class="newsTitle">
-					<img src="">
+					<img src="{{ asset('bundles/crystalnews/pics/' ~ New.idMultimedia[0].path) }}">
 					<div><span>{{ New.Title }}<br />Autor: {{ New.idUser.UserName }}</span></div>
 				</div>
 				<div class="newsDescription">
