@@ -6,6 +6,7 @@ use Crystal\BaseBundle\Entity\catCategories;
 use Crystal\BaseBundle\Entity\catUsers;
 use Crystal\BaseBundle\Entity\ctrMultimedia;
 use Crystal\AdminBundle\Resources\classes\image;
+use Crystal\AdminBundle\Resources\classes\audio;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Session\Attribute\AttributeBagInterface;
 
@@ -30,6 +31,7 @@ class newsController extends Controller
 			$category = new catCategories();
 			$user = new catUsers();
 			$imagen = new Image();
+			$audio = new audio();
 			$multi = new ctrMultimedia();
 			$request = $this->getRequest();
 			$_FILES = $request->files;
@@ -39,10 +41,10 @@ class newsController extends Controller
 			{
 
 				$_POST = $request->request;
-				$categories = $em->getRepository('CrystalBaseBundle:catCategories')->find($_POST->get('categoria'));
-
+				$categories = $em->getRepository('CrystalBaseBundle:catCategories')->find($_POST->get('txtId'));
 				$news->setContent($_POST->get('txtContent'));
-				$news->setDate($_POST->get('txtDate'));
+				$news->setTitle($_POST->get('txtTitle'));
+				$news->setDate(date('m/d/Y'));
 				$news->setKeywords($_POST->get('txtKeywords'));
 				$news->setidCategory($categories);
 
@@ -65,6 +67,40 @@ class newsController extends Controller
 					 $em->flush();
 
 	             }
+
+	            if($_FILES->get('mp3') != "")
+	            {
+	            	$audio->audio = $_FILES->get('mp3');
+		            if($audio->checkErrors() == 'NoError')
+		             {
+
+		                 $multi->setPath($audio->upload());
+		                 $multi->setType('mp3');
+		                 $multi->setidNew($news);
+
+		                 $em->persist($multi);
+						 $em->flush();
+
+		             }
+	            }	
+	           
+	            
+	        	if($_FILES->get('ogg') != "")
+	        	{
+
+		            $audio->audio = $_FILES->get('ogg');
+		            if($audio->checkErrors() == 'NoError')
+		             {
+
+		                 $multi->setPath($audio->upload());
+		                 $multi->setType('ogg');
+		                 $multi->setidNew($news);
+
+		                 $em->persist($multi);
+						 $em->flush();
+
+		             }
+	     	    }
 					
 				return $this->redirect($this->generateURL('listNews'));
 

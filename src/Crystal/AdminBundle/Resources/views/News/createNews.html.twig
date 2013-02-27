@@ -24,7 +24,7 @@
 	<tr>
 			<td>Categoria:</td>
 			<td>
-				<select name="categoria" id="categoria" onchange="cambiaEstado(this);">
+				<select name="txtId" id="categoria" onchange="cambiaEstado(this);">
 				{% for categories in categories %}
 					<option value="{{ categories.id }}">
 						{{ categories.Name }}
@@ -34,10 +34,10 @@
 			</td>
 		</tr>
 		<tr>
-			<td>Contenido:</td><td><input type="text" name="txtContent" /></td>
+			<td>Titulo:</td><td><input type="text" name="txtTitle" /></td>
 		</tr>
 		<tr>
-			<td>Fecha:</td><td><input type="text" name="txtDate" /></td>
+			<td>Contenido:</td><td><input type="text" name="txtContent" /></td>
 		</tr>
 		<tr>
 			<td>Palabra clave:</td><td><input type="text" name="txtKeywords"/></td>
@@ -46,50 +46,26 @@
 		<td>Imagen</td>
 			<td><input type="file"  name="imagen" /></td>
 		</tr>
-		<tr>
-			<td><input type="submit" name="btnNews" value="Guardar"/></td>
-		</tr>
-		
 	</table>
-<<<<<<< HEAD
 
-	<select name="categoria" id="categoria"  onClick="javascript:changeDisplay('kk')">
-			
-					<option value="3">
-						algo
-					</option>
-					<option value="2">
-						nada
-					</option>
-	
-		</select>
 
-       
-  <script type="text/javascript">
-  
-
-  
-	    function changeDisplay (id) {
-	     if(select.value == 2)
-   		{
-	      e=document.getElementById(id);
-	      if (e.style.display == 'none' || e.style.display == "") {
-	        e.style.display = 'block';
-	      } else {
-	        e.style.display = 'none';
-	      }
-	    }
-	    }
-    
-  </script>
-
-=======
->>>>>>> be308b2004205d8fc762535ad8cedc2fcf8c6927
-  
 	<div id="audioFiles" style="display:none">
-	  <input type="file" name="mp3"/></br>
-	  <input type="file" name="ogg"/>
+	<table cellpadding="0" cellspacing="0">
+	<tr>
+	<td>MP3</td>
+	  <td><input type="file" name="mp3"/></td>
+	</tr>
+	<tr>
+	<td>OGG</td>
+	  <td><input type="file" name="ogg"/></td>
+	 </tr>
+	 </table>
 	</div>
+	<table cellpadding="0" cellspacing="0">
+	  <tr>
+		<td><input type="submit" name="btnNews" value="Guardar"/></td>
+	</tr>
+	</table>
 </form>
 {% endblock %}
 

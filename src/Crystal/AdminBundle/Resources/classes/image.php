@@ -26,11 +26,10 @@
 				}
 			}
 			
-			$folder = 'pics';
 			$type = explode('image/', $this->img->getClientMimeType());
 		
-			$file = $folder . '/' . $name .'.'. $type[1];
-			$this->img->move('pics', $file);
+			$file = $name .'.'. $type[1];
+			$this->img->move('bundles/crystalnews/pics/', $file);
 			return $file;
 
 		}
