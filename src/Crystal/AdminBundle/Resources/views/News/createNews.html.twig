@@ -19,11 +19,22 @@
 			opt.getElementsByTagName('input')[0].name = "txtId";
 		}
 	</script>
-	<form method="post"  enctype="multipart/form-data" name="formu">
-	<table cellpadding="0" cellspacing="0" >
-	<tr>
-			<td>Categoria:</td>
-			<td>
+
+
+
+{% block breaking %}
+	<section id="breaking">
+		<div id="title">
+			<h2>Crear Noticia</h2>
+		</div>
+	</section>
+{% endblock %}
+
+	<form method="post"  enctype="multipart/form-data" id="register" name="formu">
+	<article id="table">
+		<div class="row">
+			<div>Categoria:</div>
+			<div>
 				<select name="txtId" id="categoria" onchange="cambiaEstado(this);">
 				{% for categories in categories %}
 					<option value="{{ categories.id }}">
@@ -31,42 +42,50 @@
 					</option>
 				{% endfor %}
 				</select>
-			</td>
-		</tr>
-		<tr>
-			<td>Titulo:</td><td><input type="text" name="txtTitle" /></td>
-		</tr>
-		<tr>
-			<td>Contenido:</td><td><input type="text" name="txtContent" /></td>
-		</tr>
-		<tr>
-			<td>Palabra clave:</td><td><input type="text" name="txtKeywords"/></td>
-		</tr>
-		<tr>
-		<td>Imagen</td>
-			<td><input type="file"  name="imagen" /></td>
-		</tr>
-	</table>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div>Titulo:</div><div><input class="text "type="text" name="txtTitle" /></div>
+		</div>
+		<div class="row">
+			<div>Contenido:</div><div><input  class="text" type="text" name="txtContent" /></div>
+		</div>
+		<div class="row">
+			<div>Palabra clave:</div><div><input  class="text" type="text" name="txtKeywords"/></div>
+		</div>
 
+		
+		<div class="row">
+		<div>Imagen</div>
+			<div><input  type="file"  class="text" name="imagen" /></div>
+		</div>
 
 	<div id="audioFiles" style="display:none">
-	<table cellpadding="0" cellspacing="0">
-	<tr>
-	<td>MP3</td>
-	  <td><input type="file" name="mp3"/></td>
-	</tr>
-	<tr>
-	<td>OGG</td>
-	  <td><input type="file" name="ogg"/></td>
-	 </tr>
-	 </table>
+		<div class="row">
+			<div>MP3</div>
+		    <div><input type="text"  class="text" name="mp3"/></div>
+		</div>
+		<div class="row">
+		 	<div>OGG</div>
+		  	<div><input type="text"  class="text" name="ogg"/></div>
+		</div>
 	</div>
-	<table cellpadding="0" cellspacing="0">
-	  <tr>
-		<td><input type="submit" name="btnNews" value="Guardar"/></td>
-	</tr>
-	</table>
+	</article>
+	<div class="row">
+	  <div align="center" style="margin-top: 30px;">
+			<input type="submit" class="button" value="Guardar"/>
+	  </div>
+	</div>
 </form>
+</section>
+	<section id="izq">
+		<div id="sidebar">
+		hola :)
+		<div>
+	</section>
+
+
 {% endblock %}
 
 

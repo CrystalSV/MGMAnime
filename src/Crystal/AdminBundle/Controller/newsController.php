@@ -68,40 +68,25 @@ class newsController extends Controller
 
 	             }
 
-	            if($_FILES->get('mp3') != "")
+	            if( $multi->setType('mp3') != "")
 	            {
-	            	$audio->audio = $_FILES->get('mp3');
-		            if($audio->checkErrors() == 'NoError')
-		             {
+			        $multi->setType('mp3');
+			        $multi->setidNew($news);
 
-		                 $multi->setPath($audio->upload());
-		                 $multi->setType('mp3');
-		                 $multi->setidNew($news);
+			        $em->persist($multi);
+					$em->flush();
+				}
 
-		                 $em->persist($multi);
-						 $em->flush();
+		          
+				if( $multi->setType('ogg') != "")
+	            {
+		         	$multi->setType('ogg');
+			        $multi->setidNew($news);
 
-		             }
-	            }	
-	           
-	            
-	        	if($_FILES->get('ogg') != "")
-	        	{
+			        $em->persist($multi);
+					$em->flush();    
+		        }     
 
-		            $audio->audio = $_FILES->get('ogg');
-		            if($audio->checkErrors() == 'NoError')
-		             {
-
-		                 $multi->setPath($audio->upload());
-		                 $multi->setType('ogg');
-		                 $multi->setidNew($news);
-
-		                 $em->persist($multi);
-						 $em->flush();
-
-		             }
-	     	    }
-					
 				return $this->redirect($this->generateURL('listNews'));
 
 
